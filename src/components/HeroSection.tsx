@@ -4,7 +4,7 @@ import heroBackground from "@/assets/hero-background.jpg";
 const HeroSection = () => {
   return (
     <div 
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat flex flex-col"
+      className="relative h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col"
       style={{ backgroundImage: `url(${heroBackground})` }}
     >
       {/* Dark overlay */}
