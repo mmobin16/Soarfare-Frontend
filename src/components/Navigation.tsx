@@ -4,14 +4,16 @@ const Navigation = () => {
   const navItems = ["Home", "About Us", "Pricing", "Rewards", "Search Flights", "FAQ's", "Contact Us"];
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-transparent relative z-10">
+    <nav className="flex items-center justify-between px-6 py-4 bg-transparent relative z-10 h-24">
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-          <span className="text-primary-foreground font-bold text-sm">✈</span>
-        </div>
-        <span className="text-white font-bold text-xl">SoarFare</span>
+        {/* Enlarged logo with contained size */}
+        <img
+          src="/4e8c6399e9117e16c30d8a0a2b25aa785d965b63.png"
+          alt="SoarFare Logo"
+          className="h-20 w-auto object-contain" // increased from h-12 to h-20
+        />
       </div>
-      
+
       <div className="hidden lg:flex items-center gap-8">
         {navItems.map((item) => (
           <a
@@ -23,12 +25,12 @@ const Navigation = () => {
           </a>
         ))}
       </div>
-      
+
       <div className="flex items-center gap-3">
-        <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+        <Button variant="outline" className="bg-transparent border-transparent text-white hover:bg-white hover:text-primary">
           Register
         </Button>
-        <Button className="bg-primary hover:bg-primary/90">
+        <Button className="bg-orange-500 hover:bg-orange-500">
           Login
         </Button>
       </div>

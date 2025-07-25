@@ -2,6 +2,12 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import BenefitsSection from "@/components/BenefitsSection";
+import PricingSection from "@/components/PricingSection";
+import ExploreMoreSection from "@/components/exploremore";
+import BlogSection from "@/components/blogsection";
+import FAQSection from "@/components/faqsection";
+import TestimonialSection from "@/components/testimonialsection";
+import Footer from "@/components/footer";
 
 const Index = () => {
   return (
@@ -12,6 +18,12 @@ const Index = () => {
       <HeroSection />
       <StatsSection />
       <BenefitsSection />
+      <PricingSection />
+      <ExploreMoreSection />
+      <BlogSection />
+      <FAQSection />
+      <TestimonialSection />
+      <Footer />
     </div>
   );
 };
