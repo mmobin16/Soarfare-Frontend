@@ -4,12 +4,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 const FlightSearchForm = () => {
   return (
-    <div className="bg-[hsl(var(--search-bg-alpha))] backdrop-blur-sm rounded-lg p-6 w-full max-w-5xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 items-end">
+    <div className="bg-white rounded-xl shadow-2xl p-6 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 items-end">
         <div className="space-y-2">
-          <label className="text-white text-sm font-medium">From</label>
+          <label className="text-gray-700 text-sm font-medium">From</label>
           <Select>
-            <SelectTrigger className="bg-white">
+            <SelectTrigger className="border border-gray-300">
               <SelectValue placeholder="Origin" />
             </SelectTrigger>
             <SelectContent>
@@ -21,9 +21,9 @@ const FlightSearchForm = () => {
         </div>
         
         <div className="space-y-2">
-          <label className="text-white text-sm font-medium">To</label>
+          <label className="text-gray-700 text-sm font-medium">To</label>
           <Select>
-            <SelectTrigger className="bg-white">
+            <SelectTrigger className="border border-gray-300">
               <SelectValue placeholder="Destination" />
             </SelectTrigger>
             <SelectContent>
@@ -35,19 +35,19 @@ const FlightSearchForm = () => {
         </div>
         
         <div className="space-y-2">
-          <label className="text-white text-sm font-medium">Travel Date</label>
-          <Input type="date" className="bg-white" placeholder="mm/dd/yyyy" />
+          <label className="text-gray-700 text-sm font-medium">Travel Date</label>
+          <Input type="date" className="border border-gray-300" placeholder="mm/dd/yyyy" />
         </div>
         
         <div className="space-y-2">
-          <label className="text-white text-sm font-medium">Return Date</label>
-          <Input type="date" className="bg-white" placeholder="mm/dd/yyyy" />
+          <label className="text-gray-700 text-sm font-medium">Return Date</label>
+          <Input type="date" className="border border-gray-300" placeholder="mm/dd/yyyy" />
         </div>
         
         <div className="space-y-2">
-          <label className="text-white text-sm font-medium">Seats & Classes</label>
+          <label className="text-gray-700 text-sm font-medium">Seats & Classes</label>
           <Select>
-            <SelectTrigger className="bg-white">
+            <SelectTrigger className="border border-gray-300">
               <SelectValue placeholder="Economy" />
             </SelectTrigger>
             <SelectContent>
@@ -59,9 +59,9 @@ const FlightSearchForm = () => {
         </div>
         
         <div className="space-y-2">
-          <label className="text-white text-sm font-medium">Travel Type</label>
+          <label className="text-gray-700 text-sm font-medium">Travel Type</label>
           <Select>
-            <SelectTrigger className="bg-white">
+            <SelectTrigger className="border border-gray-300">
               <SelectValue placeholder="One Way" />
             </SelectTrigger>
             <SelectContent>
@@ -74,7 +74,7 @@ const FlightSearchForm = () => {
       </div>
       
       <div className="flex justify-center mt-6">
-        <Button size="lg" className="bg-primary hover:bg-primary/90 px-8">
+        <Button size="lg" className="bg-primary hover:bg-primary/90 px-12 py-3 rounded-lg">
           Search Flights
         </Button>
       </div>

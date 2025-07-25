@@ -10,6 +10,9 @@ const HeroSection = () => {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
       
+      {/* Bottom fade effect */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
+      
       {/* Content */}
       <div className="relative z-10 flex flex-col flex-1">
         <div className="flex-1 flex items-center justify-start px-6 lg:px-12">
@@ -23,11 +26,11 @@ const HeroSection = () => {
             </p>
           </div>
         </div>
-        
-        {/* Search Form */}
-        <div className="px-6 lg:px-12 pb-12">
-          <FlightSearchForm />
-        </div>
+      </div>
+      
+      {/* Search Form - Positioned to overlap */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-20 w-full max-w-5xl px-6">
+        <FlightSearchForm />
       </div>
     </div>
   );

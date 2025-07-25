@@ -3,7 +3,7 @@ import travelersImage from "@/assets/travelers.jpg";
 
 const StatsSection = () => {
   return (
-    <div className="py-16 px-6 lg:px-12 bg-background">
+    <div className="py-32 px-6 lg:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
