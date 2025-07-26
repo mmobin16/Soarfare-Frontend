@@ -33,8 +33,8 @@ const Navigation = () => {
           </a>
         </Button>
         <Button asChild className="bg-orange-500 hover:bg-orange-500">
-  <a href="/login">Login</a>
-</Button>
+          <a href="/login">Login</a>
+        </Button>
       </div>
     </nav>
   );
