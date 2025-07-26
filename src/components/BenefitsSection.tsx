@@ -3,69 +3,82 @@ import Container from "@/assets/Container.png";
 const BenefitsSection = () => {
   return (
     <div className="w-full">
-      {/* Benefits Section - Compact version */}
-      <div className="bg-black py-12 px-6 lg:px-12 relative overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}></div>
+      {/* Benefits Section with map background */}
+      <div className="bg-black py-20 px-6 lg:px-12 relative overflow-hidden min-h-screen">
+        {/* Map background pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div 
+            className="absolute inset-0" 
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23666' stroke-width='1'%3E%3Cpath d='M10 10h80v80H10zM20 20h60v60H20zM30 30h40v40H30zM40 40h20v20H40z'/%3E%3Cpath d='M0 50h100M50 0v100M25 0v100M75 0v100M0 25h100M0 75h100'/%3E%3Cpath d='M10 0v100M90 0v100M0 10h100M0 90h100'/%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundSize: '200px 200px'
+            }}
+          ></div>
         </div>
         
         <div className="max-w-7xl mx-auto relative">
-          {/* Title - Compact */}
-          <div className="mb-8 relative">
-            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-2">OUR BENEFITS</h2>
-            
-            {/* Smaller airplane graphic */}
-            <div className="absolute top-0 right-0 lg:right-8">
-              <svg width="120" height="60" viewBox="0 0 180 80" className="text-white opacity-60">
-                <path 
-                  d="M20 40 L160 25 L150 30 L160 40 L150 50 L160 55 L20 40 Z M45 35 L45 45 M70 33 L70 47 M95 32 L95 48 M120 30 L120 50" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  fill="currentColor"
-                  fillOpacity="0.8"
-                />
-              </svg>
+          {/* Central Blue Banner with Animated Airplane */}
+          <div className="flex justify-center items-center mb-20">
+            <div className="relative bg-blue-400 px-12 py-6 rounded-lg shadow-lg overflow-hidden">
+              <h2 className="text-4xl lg:text-5xl font-bold text-black z-10 relative">OUR BENEFITS</h2>
+              
+              {/* Animated Airplane */}
+              <div className="absolute right-6 top-1/2 transform -translate-y-1/2">
+                <svg 
+                  width="80" 
+                  height="40" 
+                  viewBox="0 0 80 40" 
+                  className="text-white animate-pulse"
+                >
+                  <path 
+                    d="M10 20 L70 15 L65 18 L70 20 L65 22 L70 25 L10 20 Z M25 18 L25 22 M40 17 L40 23 M55 16 L55 24" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    fill="currentColor"
+                    fillOpacity="0.9"
+                  />
+                  <circle cx="15" cy="20" r="2" fill="currentColor"/>
+                  <path d="M5 15 L15 20 L5 25 Z" fill="currentColor"/>
+                </svg>
+              </div>
             </div>
           </div>
           
-          {/* Compact Benefits Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl">
-            {/* Card 01 */}
-            <div className="bg-slate-800 rounded-xl p-6 text-white relative border border-slate-700">
-              <div className="text-4xl font-bold mb-2 text-slate-400">01</div>
-              <h3 className="text-lg font-bold mb-2">Breaks Up Your Flight Cost</h3>
-              <p className="text-slate-300 leading-relaxed text-xs">
-                It's the simple solution to a simple problem. Break up those flight costs into more affordable payments.
+          {/* Positioned Benefits Cards */}
+          <div className="relative h-96">
+            {/* Card 01 - Top Left */}
+            <div className="absolute top-0 left-0 bg-blue-900 rounded-xl p-6 text-white max-w-xs shadow-xl">
+              <div className="text-5xl font-bold mb-3 text-blue-300">01</div>
+              <h3 className="text-xl font-bold mb-3">Breaks Up Your Flight Cost</h3>
+              <p className="text-blue-100 leading-relaxed text-sm">
+                It's the simple solution to a simple problem! Break up those flight costs into more affordable payments so you can take that trip whenever you want!
               </p>
             </div>
             
-            {/* Card 02 */}
-            <div className="bg-white rounded-xl p-6 text-gray-800 relative shadow-lg">
-              <div className="text-4xl font-bold mb-2 text-gray-300">02</div>
-              <h3 className="text-lg font-bold mb-2">Build Points Monthly</h3>
-              <p className="text-gray-600 leading-relaxed text-xs">
-                Planning for a trip that you need to save up for? Think of the big-ticket option.
+            {/* Card 02 - Top Right */}
+            <div className="absolute top-0 right-0 bg-white rounded-xl p-6 text-gray-800 max-w-xs shadow-xl">
+              <div className="text-5xl font-bold mb-3 text-gray-400">02</div>
+              <h3 className="text-xl font-bold mb-3">Helps You Plan For Trips</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Planning on a trip that you need to save up for? Great! Pick the subscription that helps you get to your needed points 30-45 days before you plan on going!
               </p>
             </div>
             
-            {/* Card 03 */}
-            <div className="bg-green-500 rounded-xl p-6 text-white relative">
-              <div className="text-4xl font-bold mb-2 text-green-200">03</div>
-              <h3 className="text-lg font-bold mb-2">Book Flights Your Way!</h3>
-              <p className="text-green-100 leading-relaxed text-xs">
-                We make it effortless and as easy for you to book flights.
+            {/* Card 03 - Bottom Left */}
+            <div className="absolute bottom-0 left-0 bg-green-500 rounded-xl p-6 text-white max-w-xs shadow-xl">
+              <div className="text-5xl font-bold mb-3 text-green-200">03</div>
+              <h3 className="text-xl font-bold mb-3">Book Flights Your Way!</h3>
+              <p className="text-green-100 leading-relaxed text-sm">
+                We make it effortless and as easy for you to book flights. Whether it's through subscription or another Up program to always be building towards a flight.
               </p>
             </div>
             
-            {/* Card 04 */}
-            <div className="bg-orange-500 rounded-xl p-6 text-white relative">
-              <div className="text-4xl font-bold mb-2 text-orange-200">04</div>
-              <h3 className="text-lg font-bold mb-2">Connect with the World</h3>
-              <p className="text-orange-100 leading-relaxed text-xs">
-                Share your experiences and get recommendations from our community.
+            {/* Card 04 - Bottom Right */}
+            <div className="absolute bottom-0 right-0 bg-orange-500 rounded-xl p-6 text-white max-w-xs shadow-xl">
+              <div className="text-5xl font-bold mb-3 text-orange-200">04</div>
+              <h3 className="text-xl font-bold mb-3">Share The World</h3>
+              <p className="text-orange-100 leading-relaxed text-sm">
+                We allow you to share your points with anyone you want as a gift or to contribute to someone elses budget for your travel buddy! All they need is a SoarFare Account.
               </p>
             </div>
           </div>
