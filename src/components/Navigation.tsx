@@ -18,7 +18,7 @@ const Navigation = () => {
         {navItems.map((item) => (
           <a
             key={item}
-            href="#"
+            href={item === "About Us" ? "/about" : item === "Home" ? "/" : item === "Search Flights" ? "/searchflights" : "#" }
             className="text-white hover:text-primary-foreground transition-colors text-sm font-medium"
           >
             {item}
@@ -27,12 +27,14 @@ const Navigation = () => {
       </div>
 
       <div className="flex items-center gap-3">
-        <Button variant="outline" className="bg-transparent border-transparent text-white hover:bg-white hover:text-primary">
+        <Button variant="outline" asChild className="bg-transparent border-transparent text-white hover:bg-white hover:text-primary">
+          <a href="/register">
           Register
+          </a>
         </Button>
-        <Button className="bg-orange-500 hover:bg-orange-500">
-          Login
-        </Button>
+        <Button asChild className="bg-orange-500 hover:bg-orange-500">
+  <a href="/login">Login</a>
+</Button>
       </div>
     </nav>
   );

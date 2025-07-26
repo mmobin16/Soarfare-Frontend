@@ -24,6 +24,15 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				// Travel Login Colors
+				'login-bg': 'hsl(var(--login-bg))',
+				'login-card': 'hsl(var(--login-card))',
+				'login-orange': 'hsl(var(--login-orange))',
+				'login-orange-hover': 'hsl(var(--login-orange-hover))',
+				'login-text': 'hsl(var(--login-text))',
+				'login-text-muted': 'hsl(var(--login-text-muted))',
+				'login-border': 'hsl(var(--login-border))',
+				'welcome-overlay': 'hsl(var(--welcome-overlay))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
