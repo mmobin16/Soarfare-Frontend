@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
-  const navItems = ["Home", "About Us", "Pricing", "Rewards", "Search Flights", "FAQ's", "Contact Us"];
+  const navItems = ["Home", "About Us", "Subscription", "Search Flights", "FAQ's", "Support"];
 
   return (
     <nav className="flex items-center justify-between px-6 py-4 bg-transparent relative z-10 h-24">
@@ -18,7 +18,7 @@ const Navigation = () => {
         {navItems.map((item) => (
           <a
             key={item}
-            href={item === "About Us" ? "/about" : item === "Home" ? "/" : item === "Search Flights" ? "/searchflights" : "#" }
+            href={item === "About Us" ? "/about" : item === "Home" ? "/" : item === "Search Flights" ? "/searchflights" : item === "Subscription" ? "/subscription" : item === "FAQ's" ? "/faq" : item === "Support" ? "/support" : "#" }
             className="text-white hover:text-primary-foreground transition-colors text-sm font-medium"
           >
             {item}

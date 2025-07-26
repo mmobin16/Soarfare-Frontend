@@ -9,6 +9,9 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SearchFlights from "./pages/searchFlights";
+import Subscriptions from "./pages/Subscriptions";
+import FaqPage from "./pages/FaqPage";
+import Support from "./pages/Support";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +27,9 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/searchflights" element={<SearchFlights />} />
+          <Route path="/subscription" element={<Subscriptions />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/support" element={<Support />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
