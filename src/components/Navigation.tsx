@@ -18,7 +18,7 @@ const Navigation = () => {
         {navItems.map((item) => (
           <a
             key={item}
-            href="#"
+            href={item === "About Us" ? "/about" : item === "Home" ? "/" : "#"}
             className="text-white hover:text-primary-foreground transition-colors text-sm font-medium"
           >
             {item}
