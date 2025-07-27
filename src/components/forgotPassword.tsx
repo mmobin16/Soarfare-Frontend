@@ -15,7 +15,7 @@ const ForgotPasswordForm = () => {
     setDigits(newDigits);
 
     // Auto focus to next input if a digit was entered
-    if (value && index < 2) {
+    if (value && index < 3) {
       inputRefs.current[index + 1].focus();
     }
   };
@@ -32,7 +32,7 @@ const ForgotPasswordForm = () => {
     const pasteData = e.clipboardData.getData('text/plain').slice(0, 3);
     const newDigits = [...digits];
     
-    for (let i = 0; i < pasteData.length && i < 3; i++) {
+    for (let i = 0; i < pasteData.length && i < 4; i++) {
       if (/^\d$/.test(pasteData[i])) {
         newDigits[i] = pasteData[i];
         if (i < 2) {
