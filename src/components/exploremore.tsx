@@ -157,29 +157,28 @@ export default function ExploreMoreSection() {
 </div>
 
 
-      {/* Promo img with Overlay */}
-      <div className="relative max-w-6xl mx-auto rounded-2xl overflow-hidden">
-        <img
-          src="/Group 1000003876.png"
-          alt="Plan Ahead Banner"
-          width={1600}
-          height={700}
-          className="w-full h-auto object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-12 md:px-20">
-          <p className="text-white font-poppins text-lg mb-4">
-            Can't decide where to go?
-          </p>
-          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-poppins font-bold leading-tight mb-2 max-w-xl">
-            Plan Ahead, <br /> Save Now, <br /> Fly Anywhere
-          </h2>
-          
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white w-fit px-6 py-3 rounded-md">
-            Join SoarFare
-          </Button>
-        </div>
-      </div>
+     <div className="relative w-full max-w-6xl mx-auto rounded-2xl overflow-hidden">
+  <img
+    src="/Group 1000003876.png"
+    alt="Plan Ahead Banner"
+    width={1600}
+    height={700}
+    className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+  />
+  <div className="absolute inset-0 bg-black/30" />
+  <div className="absolute inset-0 flex flex-col justify-center items-start px-4 sm:px-8 md:px-16 space-y-3">
+    <p className="text-white text-sm sm:text-base md:text-lg font-poppins">
+      Can't decide where to go?
+    </p>
+    <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-poppins leading-tight max-w-[90%] sm:max-w-md">
+      Plan Ahead, <br /> Save Now, <br /> Fly Anywhere
+    </h2>
+    <Button className="bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base px-5 py-2 sm:px-6 sm:py-3 rounded-md">
+      Join SoarFare
+    </Button>
+  </div>
+</div>
+
     </section>
   );
 }
