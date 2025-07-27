@@ -16,6 +16,7 @@ import FaqPage from "./pages/FaqPage";
 import Support from "./pages/Support";
 import Footer from "./components/footer";
 import Footer2 from "./components/footer2";
+import ForgotPassword from "./pages/forgotpassword";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/support" element={<Support />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
         </Routes>
 
         {/* Conditionally render footer */}

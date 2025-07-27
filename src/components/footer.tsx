@@ -40,35 +40,49 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-8 sm:py-12 backdrop-brightness-95">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Brand */}
-            <div className="sm:col-span-2 lg:col-span-1">
-              <div className="mb-6">
-                <h3 className="text-xl sm:text-2xl font-light mb-4">
-                  <span>Soar</span>
-                  <span className="text-orange-500">Fare</span>
-                  <span className="inline-block ml-1">✈️</span>
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  We create flexible travel solutions that help people plan ahead, save better, and connect meaningfully with the world.
-                </p>
-              </div>
-              {/* Social */}
-              <div className="flex gap-3 justify-center sm:justify-start">
-                <div className="w-10 h-10 bg-primary-foreground rounded-full flex items-center justify-center">
-                  <Facebook className="w-5 h-5 text-primary" />
-                </div>
-                <div className="w-10 h-10 bg-muted/20 rounded-full flex items-center justify-center">
-                  <Twitter className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
-                  <Instagram className="w-5 h-5 text-white" />
-                </div>
-                <div className="w-10 h-10 bg-muted/20 rounded-full flex items-center justify-center">
-                  <div className="w-5 h-5 bg-primary-foreground rounded-sm flex items-center justify-center">
-                    <span className="text-primary text-xs font-bold">t</span>
-                  </div>
-                </div>
-              </div>
+            <div className="mb-8">
+          <div className="mb-6">
+            <img 
+              src="/footer logo.png" 
+              alt="Footer Logo" 
+              className="h-20 w-36 sm:h-24 sm:w-40 object-contain mb-4"
+            />
+            <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
+              We create flexible travel solutions that help people plan ahead, save better, and connect meaningfully with the world.
+            </p>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex gap-4">
+            {/* Facebook */}
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#F27709"/>
+              </svg>
             </div>
+
+            {/* X (Twitter) */}
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#F27709"/>
+              </svg>
+            </div>
+
+            {/* Instagram */}
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#F27709"/>
+              </svg>
+            </div>
+
+            {/* TikTok */}
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" fill="#F27709"/>
+              </svg>
+            </div>
+          </div>
+        </div>
 
             {/* Quick Links */}
             <div className="text-center sm:text-left">
@@ -100,9 +114,10 @@ const Footer = () => {
               <div className="space-y-3 sm:space-y-4">
                 {/* Location */}
                 <div className="flex items-start gap-3 justify-center sm:justify-start">
-                  <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center mt-0.5 flex-shrink-0">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
+                  <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.3603 14.3018L10.9513 19.7109L5.54216 14.3018C4.5556 13.3266 3.89222 12.17 3.55202 10.8319C3.21183 9.53912 3.21183 8.24638 3.55202 6.95364C3.89222 5.61554 4.55276 4.45604 5.53365 3.47515C6.51455 2.49426 7.67405 1.82804 9.01214 1.47651C10.3049 1.14765 11.5976 1.14765 12.8904 1.47651C14.2285 1.82804 15.388 2.49426 16.3689 3.47515C17.3497 4.45604 18.0103 5.61554 18.3505 6.95364C18.6907 8.24638 18.6907 9.53912 18.3505 10.8319C18.0103 12.17 17.3469 13.3266 16.3603 14.3018ZM10.9513 10.5937C11.2574 10.5937 11.5409 10.5172 11.8017 10.3641C12.0626 10.211 12.2695 10.0041 12.4226 9.74323C12.5757 9.48242 12.6522 9.19892 12.6522 8.89275C12.6522 8.58657 12.5757 8.30308 12.4226 8.04226C12.2695 7.78145 12.0626 7.57449 11.8017 7.42141C11.5409 7.26832 11.2574 7.19178 10.9513 7.19178C10.6451 7.19178 10.3616 7.26832 10.1008 7.42141C9.83995 7.57449 9.633 7.78145 9.47991 8.04226C9.32682 8.30308 9.25028 8.58657 9.25028 8.89275C9.25028 9.19892 9.32682 9.48242 9.47991 9.74323C9.633 10.0041 9.83995 10.211 10.1008 10.3641C10.3616 10.5172 10.6451 10.5937 10.9513 10.5937Z" fill="#F27709"/>
+</svg>
+
                   <div className="text-center sm:text-left">
                     <p className="font-medium">Location:</p>
                     <p className="text-muted-foreground text-sm sm:text-base">Riverton, Utah, USA</p>
@@ -110,9 +125,10 @@ const Footer = () => {
                 </div>
                 {/* Email */}
                 <div className="flex items-start gap-3 justify-center sm:justify-start">
-                  <div className="w-5 h-5 bg-orange-500 flex items-center justify-center mt-0.5 flex-shrink-0">
-                    <div className="w-3 h-2 bg-white rounded-sm"></div>
-                  </div>
+                  <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.2958 2.70687H18.6046C18.8427 2.70687 19.044 2.78908 19.2084 2.95351C19.3728 3.11794 19.455 3.31922 19.455 3.55735V17.1651C19.455 17.4033 19.3728 17.6046 19.2084 17.769C19.044 17.9334 18.8427 18.0156 18.6046 18.0156H3.2958C3.05766 18.0156 2.85638 17.9334 2.69195 17.769C2.52753 17.6046 2.44531 17.4033 2.44531 17.1651V3.55735C2.44531 3.31922 2.52753 3.11794 2.69195 2.95351C2.85638 2.78908 3.05766 2.70687 3.2958 2.70687ZM11.0012 10.0891L5.54108 5.46244L4.45246 6.75518L11.0182 12.3344L17.4649 6.75518L16.3423 5.46244L11.0012 10.0891Z" fill="#F27709"/>
+</svg>
+
                   <div className="text-center sm:text-left">
                     <p className="font-medium">Email:</p>
                     <p className="text-muted-foreground text-sm sm:text-base break-all">hello@example.com</p>
@@ -120,9 +136,10 @@ const Footer = () => {
                 </div>
                 {/* Phone */}
                 <div className="flex items-start gap-3 justify-center sm:justify-start">
-                  <div className="w-5 h-5 bg-orange-500 flex items-center justify-center mt-0.5 flex-shrink-0">
-                    <div className="w-3 h-3 border-2 border-white rounded-full"></div>
-                  </div>
+                  <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.6056 14.3704V17.3811C18.6056 17.5966 18.5291 17.7865 18.376 17.9509C18.2229 18.1154 18.0386 18.2089 17.8232 18.2316C17.449 18.2543 17.1428 18.2656 16.9047 18.2656C15.0563 18.2656 13.2929 17.9084 11.6146 17.194C9.9817 16.5023 8.53871 15.5299 7.28566 14.2768C6.03261 13.0238 5.06022 11.5808 4.36849 9.94787C3.65408 8.26957 3.29688 6.50623 3.29688 4.65784C3.29688 4.4197 3.30821 4.11353 3.33089 3.73931C3.35357 3.52386 3.44713 3.33959 3.61156 3.1865C3.77598 3.03341 3.96592 2.95687 4.18138 2.95687H7.1921C7.3055 2.95687 7.40189 2.99372 7.48127 3.06743C7.56065 3.14114 7.60601 3.22902 7.61735 3.33108L7.66838 3.80735C7.83847 4.99803 8.17867 6.13202 8.68896 7.2093C8.73432 7.30002 8.74566 7.39074 8.72298 7.48145C8.7003 7.57217 8.64927 7.64588 8.56989 7.70258L6.73284 9.01233C7.28849 10.3164 8.07094 11.4731 9.08018 12.4823C10.0894 13.4916 11.2461 14.274 12.5502 14.8297L13.8599 12.9926C13.9166 12.9132 13.9903 12.8622 14.081 12.8395C14.1718 12.8168 14.2625 12.8282 14.3532 12.8735C15.4305 13.3838 16.5645 13.724 17.7551 13.8941L18.2314 13.9452C18.3335 13.9565 18.4214 14.0019 18.4951 14.0812C18.5688 14.1606 18.6056 14.257 18.6056 14.3704Z" fill="#F27709"/>
+</svg>
+
                   <div className="text-center sm:text-left">
                     <p className="font-medium">Phone:</p>
                     <p className="text-muted-foreground text-sm sm:text-base">(+01) 1234567985</p>

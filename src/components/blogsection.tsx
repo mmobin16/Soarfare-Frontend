@@ -43,7 +43,7 @@ export default function BlogSection() {
                 className="object-cover w-full h-full rounded-t-2xl"
               />
               {/* Heart Icon Placeholder */}
-              <div className="absolute top-3 right-3 bg-white p-1 rounded-full shadow-md">
+              <div className="absolute top-3 left-5 bg-white p-1 rounded-full shadow-md">
                 <svg width="20" height="20" fill="none" stroke="#333" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4.97-4.685-8-7.673-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 3.327-3.03 6.315-8 11z" />
                 </svg>

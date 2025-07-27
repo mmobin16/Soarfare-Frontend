@@ -71,7 +71,7 @@ const LoginForm = () => {
       
           {/* Forgot Password */}
           <div className="text-right">
-            <a href="#" className="text-login-text-muted text-xs sm:text-sm hover:text-login-orange">
+            <a href="/forgotpassword" className="text-login-text-muted text-xs sm:text-sm hover:text-login-orange">
               Forgot Password?
             </a>
           </div>

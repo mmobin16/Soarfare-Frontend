@@ -31,9 +31,9 @@ const HeroSection = () => {
 
       
       {/* Search Form - Positioned to overlap */}
-      <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 translate-y-20 sm:translate-y-12 lg:translate-y-16 z-20 w-full max-w-5xl px-3 sm:px-6">
-        <FlightSearchComponent />
-      </div>
+<div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 translate-y-20 sm:translate-y-12 lg:translate-y-16 z-50 w-full max-w-5xl px-3 sm:px-6">
+  <FlightSearchComponent />
+</div>
     </div>
   );
 };
