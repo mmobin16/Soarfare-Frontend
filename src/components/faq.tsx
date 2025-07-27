@@ -43,24 +43,24 @@ const SoarFareFAQ = () => {
   const tabs = ["General", "My Dashboard", "Ticket Booking", "Altitude Rewards"];
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 bg-white min-h-screen">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 bg-white min-h-screen">
       {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-gray-900 mb-4 tracking-wide">FAQ'S</h1>
-        <p className="text-gray-600 text-lg max-w-md mx-auto leading-relaxed">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 tracking-wide">FAQ'S</h1>
+        <p className="text-gray-600 text-base sm:text-lg max-w-md mx-auto leading-relaxed px-4 sm:px-0">
           SoarFare is great for those that love to travel to always be building up points for the next great adventure!
         </p>
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex justify-center mb-8">
-        <div className="bg-orange-500 rounded-xl p-1 shadow-sm border border-gray-200">
-          <div className="flex">
+      <div className="flex justify-center mb-6 sm:mb-8 px-2 sm:px-0">
+        <div className="bg-orange-500 rounded-xl p-1 shadow-sm border border-gray-200 w-full sm:w-auto overflow-x-auto">
+          <div className="flex min-w-max sm:min-w-0">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2 rounded-xl text-sm font-medium transition-colors ${
+                className={`px-3 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   activeTab === tab
                     ? 'bg-white text-grey-800'
                     : 'bg-transparent text-white '
@@ -79,20 +79,20 @@ const SoarFareFAQ = () => {
           <div key={index} className="bg-white border-b border-[#081C3A]">
             <button
               onClick={() => toggleItem(index)}
-              className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+              className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
             >
-              <span className="text-[#081C3A] font-medium text-base pr-4">
+              <span className="text-[#081C3A] font-medium text-sm sm:text-base pr-3 sm:pr-4 leading-snug">
                 {item.question}
               </span>
-              <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">
-                <span className="text-[#081C3A] text-lg font-bold">
+              <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gray-100 flex items-center justify-center">
+                <span className="text-[#081C3A] text-base sm:text-lg font-bold">
                   {expandedItem === index ? '−' : '+'}
                 </span>
               </div>
             </button>
             {expandedItem === index && item.answer && (
-              <div className="px-6 pb-5">
-                <p className="text-gray-600 text-base leading-relaxed">
+              <div className="px-4 sm:px-6 pb-4 sm:pb-5">
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                   {item.answer}
                 </p>
               </div>
