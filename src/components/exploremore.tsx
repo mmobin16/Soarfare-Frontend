@@ -40,8 +40,8 @@ export default function ExploreMoreSection() {
     <section className="px-4 py-12 bg-white w-full">
       {/* Header */}
       <div className="text-center mb-8">
-        <p className="text-sm text-muted-foreground mb-2">Get there with SoarFare</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <p className="text-sm text-[#85C1E9] mb-2">Get there with SoarFare</p>
+        <h2 className="text-3xl md:text-4xl font-manrope font-bold text-gray-800">
           Popular Destinations on SoarFare
         </h2>
       </div>
@@ -69,11 +69,11 @@ export default function ExploreMoreSection() {
                   height={300}
                   className="w-full h-64 object-cover"
                 />
-                <div className="absolute top-4 left-4 text-white text-sm font-semibold">
+                <div className="absolute top-4 left-4 text-white text-sm font-barlow font-semibold">
                   <p>{dest.from}</p>
                   <p className="text-xs">{dest.fromLocation}</p>
                 </div>
-                <div className="absolute top-4 right-4 text-white text-sm font-semibold text-right">
+                <div className="absolute top-4 right-4 text-white text-sm font-barlow font-semibold text-right">
                   <p>{dest.to}</p>
                   <p className="text-xs">{dest.toLocation}</p>
                 </div>
@@ -82,11 +82,18 @@ export default function ExploreMoreSection() {
 
                 {/* Bottom Label or CTA */}
                 {dest.label && (
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center bg-black/50 text-white px-4 py-2 rounded-md">
-                    <span className="text-sm">{dest.label}</span>
-                    <div className="text-white text-xl">→</div>
-                  </div>
-                )}
+  <div
+    className={`absolute bottom-4 left-4 right-4 flex justify-between items-center px-4 py-2 rounded-md font-barlow ${
+      dest.label === "Search Flights"
+        ? "bg-white text-black"
+        : "bg-black/50 text-white"
+    }`}
+  >
+    <span className="text-sm">{dest.label}</span>
+    <div className={`text-xl ${dest.label === "Search Flights" ? "text-black" : "text-white"}`}>→</div>
+  </div>
+)}
+
               </div>
             </SwiperSlide>
           ))}
@@ -104,12 +111,13 @@ export default function ExploreMoreSection() {
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-12 md:px-20">
-          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-2 max-w-xl">
+          <p className="text-white font-poppins text-lg mb-4">
+            Can't decide where to go?
+          </p>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-poppins font-bold leading-tight mb-2 max-w-xl">
             Plan Ahead, <br /> Save Now, <br /> Fly Anywhere
           </h2>
-          <p className="text-white text-lg mb-4">
-            Take control of your travel goals with flexible monthly savings.
-          </p>
+          
           <Button className="bg-orange-500 hover:bg-orange-600 text-white w-fit px-6 py-3 rounded-md">
             Join SoarFare
           </Button>

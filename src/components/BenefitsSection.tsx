@@ -1,128 +1,145 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Container from "@/assets/Container.png";
 
 const BenefitsSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isInView) {
+        videoRef.current.play().catch(() => {});
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isInView]);
+
   return (
     <div className="w-full">
-      {/* Benefits Section - Compact version */}
-      <div className="bg-black py-8 sm:py-12 px-4 sm:px-6 lg:px-12 relative overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative">
-          {/* Title - Compact */}
-          <div className="mb-6 sm:mb-8 relative text-center sm:text-left">
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-2">OUR BENEFITS</h2>
-            
-            {/* Smaller airplane graphic - hidden on mobile */}
-            <div className="hidden sm:block absolute top-0 right-0 lg:right-8">
-              <svg width="80" height="40" viewBox="0 0 180 80" className="text-white opacity-60 sm:w-[120px] sm:h-[60px]">
-                <path 
-                  d="M20 40 L160 25 L150 30 L160 40 L150 50 L160 55 L20 40 Z M45 35 L45 45 M70 33 L70 47 M95 32 L95 48 M120 30 L120 50" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  fill="currentColor"
-                  fillOpacity="0.8"
-                />
-              </svg>
-            </div>
-          </div>
-          
-          {/* Compact Benefits Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 max-w-5xl mx-auto">
-            {/* Card 01 */}
-            <div className="bg-slate-800 rounded-xl p-4 sm:p-6 text-white relative border border-slate-700">
-              <div className="text-3xl sm:text-4xl font-bold mb-2 text-slate-400">01</div>
-              <h3 className="text-base sm:text-lg font-bold mb-2">Breaks Up Your Flight Cost</h3>
-              <p className="text-slate-300 leading-relaxed text-xs">
-                It's the simple solution to a simple problem. Break up those flight costs into more affordable payments.
-              </p>
-            </div>
-            
-            {/* Card 02 */}
-            <div className="bg-white rounded-xl p-4 sm:p-6 text-gray-800 relative shadow-lg">
-              <div className="text-3xl sm:text-4xl font-bold mb-2 text-gray-300">02</div>
-              <h3 className="text-base sm:text-lg font-bold mb-2">Build Points Monthly</h3>
-              <p className="text-gray-600 leading-relaxed text-xs">
-                Planning for a trip that you need to save up for? Think of the big-ticket option.
-              </p>
-            </div>
-            
-            {/* Card 03 */}
-            <div className="bg-green-500 rounded-xl p-4 sm:p-6 text-white relative">
-              <div className="text-3xl sm:text-4xl font-bold mb-2 text-green-200">03</div>
-              <h3 className="text-base sm:text-lg font-bold mb-2">Book Flights Your Way!</h3>
-              <p className="text-green-100 leading-relaxed text-xs">
-                We make it effortless and as easy for you to book flights.
-              </p>
-            </div>
-            
-            {/* Card 04 */}
-            <div className="bg-orange-500 rounded-xl p-4 sm:p-6 text-white relative">
-              <div className="text-3xl sm:text-4xl font-bold mb-2 text-orange-200">04</div>
-              <h3 className="text-base sm:text-lg font-bold mb-2">Connect with the World</h3>
-              <p className="text-orange-100 leading-relaxed text-xs">
-                Share your experiences and get recommendations from our community.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Video Section */}
+      <section className="bg-transparent relative overflow-hidden py-8 sm:py-16 lg:py-20">
+  <div className="w-screen">
+    <div className="relative overflow-hidden rounded-none shadow-lg w-full h-[200px] sm:h-[280px] lg:h-[600px]">
+      <video
+        ref={videoRef}
+        src="/benefits animation.mp4"
+        className="w-full h-full object-cover"
+        muted
+        playsInline
+        autoPlay
+        loop
+        preload="auto"
+      />
+      <div className="absolute inset-0 bg-black/20" />
+    </div>
+  </div>
+</section>
 
-      {/* Compact Why Choose SoarFare Section */}
-      <div className="bg-gray-50 py-8 sm:py-12 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
-            <div className="text-center lg:text-left">
-              <p className="text-blue-600 font-medium mb-2">Why Choose SoarFare</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 leading-tight px-2 sm:px-0">
-                We Recommend Beautiful Destinations
-              </h2>
-              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm max-w-lg mx-auto lg:mx-0">
-                Experiencing the world doesn't have to wait. SoarFare helps real people plan real trips with flexible subscriptions.
-              </p>
-              
-              <div className="space-y-3 text-left max-w-md mx-auto lg:mx-0">
-                <div className="flex items-start gap-2 sm:gap-3">
-                  <div className="bg-green-100 rounded-full p-1 mt-1 flex-shrink-0">
-                    <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1 text-sm">Travel on Your Terms</h4>
-                    <p className="text-gray-600 text-xs leading-relaxed">Whether you're planning a quick weekend getaway or a long adventure.</p>
-                  </div>
+
+      {/* Why Choose SoarFare */}
+      <section className="bg-gray-50 py-8 sm:py-12 px-4 sm:px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+          {/* Text Content */}
+          <div className="text-center lg:text-left">
+            <p className="text-[#85C1E9] font-poppins font-medium mb-2">
+              Why Choose SoarFare
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-poppins font-bold text-[#474747] mb-4 leading-tight px-2 sm:px-0">
+              We Recommend Beautiful Destinations
+            </h2>
+            <p className="text-[#474747] font-barlow mb-4 sm:mb-6 leading-relaxed text-sm max-w-lg mx-auto lg:mx-0">
+              Experiencing the world doesn’t have to wait for the perfect
+              moment—or the perfect budget. SoarFare helps real people plan real
+              trips: with flexible subscriptions, rewards, and support every
+              step of the way! Join a community of travelers who are getting
+              there, together.
+            </p>
+
+            <div className="space-y-3 text-left max-w-md mx-auto lg:mx-0">
+              {/* Point 1 */}
+              <div className="flex items-start gap-2 sm:gap-3">
+                <div className="bg-white rounded-full p-1 mt-1 flex-shrink-0 border border-black">
+                  <svg
+                    className="w-3 h-3 text-orange-500"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </div>
-                
-                <div className="flex items-start gap-2 sm:gap-3">
-                  <div className="bg-green-100 rounded-full p-1 mt-1 flex-shrink-0">
-                    <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1 text-sm">Flexible Solutions</h4>
-                    <p className="text-gray-600 text-xs leading-relaxed">Sign up in minutes, track your progress.</p>
-                  </div>
+                <div>
+                  <h4 className="font-semibold font-poppins text-[#474747] mb-1 text-sm">
+                    Travel on Your Terms
+                  </h4>
+                  <p className="text-[#474747] font-barlow text-xs leading-relaxed">
+                    Whether you're planning a quick weekend getaway or a long
+                    adventure.
+                  </p>
                 </div>
               </div>
-            </div>
-            
-            <div className="relative order-first lg:order-last">
-              <div 
-                className="relative w-full h-[40vh] sm:h-[45vh] lg:w-[70vh] lg:h-[50vh] bg-cover bg-center bg-no-repeat flex flex-col rounded-2xl overflow-hidden mx-auto lg:mx-0"
-                style={{ backgroundImage: `url(${Container})` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+              {/* Point 2 */}
+              <div className="flex items-start gap-2 sm:gap-3">
+                <div className="bg-white rounded-full p-1 mt-1 flex-shrink-0 border border-black">
+                  <svg
+                    className="w-3 h-3 text-orange-500"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold font-poppins text-[#474747] mb-1 text-sm">
+                    Flexible Solutions
+                  </h4>
+                  <p className="text-[#474747] font-barlow text-xs leading-relaxed">
+                    Sign up in minutes, track your progress.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Image Card */}
+          <div className="relative order-first lg:order-last">
+            <div
+              className="relative w-full h-[40vh] sm:h-[45vh] lg:w-[70vh] lg:h-[50vh] bg-cover bg-center bg-no-repeat flex flex-col rounded-2xl overflow-hidden mx-auto lg:mx-0"
+              style={{ backgroundImage: `url(${Container})` }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

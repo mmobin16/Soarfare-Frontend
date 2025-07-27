@@ -28,7 +28,7 @@ const Login = () => {
 </div>
 
 
-      <Footer />
+      
     </div>
   );
 };

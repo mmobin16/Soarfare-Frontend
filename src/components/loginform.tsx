@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Eye, EyeOff, LogIn } from "lucide-react";
+import { Eye, EyeOff, LogIn,User,Mail,Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import travelImage from "../assets/image 26.png"; // Ensure correct path
+import travelImage from "../assets/dde17cfab99d455d9c7d79999fe81c9435521f36.png"; // Ensure correct path
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,49 +24,51 @@ const LoginForm = () => {
 
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8">
-          <h1 className="text-xl sm:text-2xl font-semibold text-login-text mb-2">
+          <h1 className="text-xl sm:text-2xl font-semibold font-poppins text-[#12223B] mb-2">
             Sign in with email
           </h1>
-          <p className="text-login-text-muted text-sm px-4 sm:px-0">
+          <p className="text-[#4D4D4D] font-barlow text-sm px-4 sm:px-0">
             Sign in to stay connected and get the most out of our services.
           </p>
         </div>
 
         {/* Form */}
-        <div className="space-y-3 sm:space-y-4 max-w-md mx-auto w-full">
-          {/* Email Input */}
-          <div>
-            <Input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-login-bg border-login-border rounded-lg text-login-text placeholder:text-login-text-muted focus:border-login-orange focus:ring-1 focus:ring-login-orange text-sm sm:text-base"
-            />
-          </div>
+        <div className="w-full p-6 space-y-4">
 
-          {/* Password Input */}
-          <div className="relative">
-            <Input
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-login-bg border-login-border rounded-lg text-login-text placeholder:text-login-text-muted focus:border-login-orange focus:ring-1 focus:ring-login-orange pr-10 sm:pr-12 text-sm sm:text-base"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-login-text-muted hover:text-login-text p-1"
-            >
-              {showPassword ? (
-                <EyeOff className="w-4 h-4 sm:w-5 sm:h-5" />
-              ) : (
-                <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
-              )}
-            </button>
-          </div>
+      {/* Email Field */}
+      <div className="relative">
+        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
+          <Mail className="w-5 h-5" />
+        </div>
+        <Input
+          type="email"
+          placeholder="Email"
+          className="pl-12 bg-[#EEF3F5] border-0 rounded-xl h-12 text-base placeholder:text-muted-foreground"
+        />
+      </div>
 
+      
+
+      {/* Password Field */}
+      <div className="relative">
+        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
+          <Lock className="w-5 h-5" />
+        </div>
+        <Input
+          type={showPassword ? "text" : "password"}
+          placeholder="Password"
+          className="pl-12 pr-12 bg-[#EEF3F5] border-0 rounded-xl h-12 text-base placeholder:text-muted-foreground"
+        />
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+        >
+          {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+        </button>
+      </div>
+
+      
           {/* Forgot Password */}
           <div className="text-right">
             <a href="#" className="text-login-text-muted text-xs sm:text-sm hover:text-login-orange">
@@ -91,7 +93,8 @@ const LoginForm = () => {
               </a>
             </span>
           </div>
-        </div>
+    </div>
+
       </div>
 
       {/* Right Column - Image */}

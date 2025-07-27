@@ -21,12 +21,12 @@ const blogs = [
   },
 ];
 
-export default function BlogSection() {
+export default function BlogSection2() {
   return (
     <section className="bg-white py-12 px-4 w-full">
       <div className="text-center mb-10">
-        <p className="text-sm font-poppins text-blue-400 font-semibold mb-1">Blogs</p>
-        <h2 className="text-3xl md:text-4xl font-poppins font-bold text-gray-800">Our Blogs</h2>
+        <p className="text-sm font-poppins text-orange-500 font-semibold mb-1">Blogs</p>
+        <h2 className="text-3xl md:text-4xl font-poppins font-semibold text-gray-800">Our Blogs</h2>
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -68,7 +68,7 @@ export default function BlogSection() {
               {/* Footer */}
               <div className="mt-auto pt-3 border-t">
                 <div className="flex justify-between items-center text-sm font-barlow text-gray-600">
-                  <a href="#" className="text-blue-500 font-medium hover:underline flex items-center gap-1">
+                  <a href="#" className="text-orange-500 font-medium hover:underline flex items-center gap-1">
                     Read More →
                   </a>
                   <div className="flex items-center gap-1">

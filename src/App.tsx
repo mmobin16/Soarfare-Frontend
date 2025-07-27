@@ -2,7 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import Index from "../public/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -12,8 +14,17 @@ import SearchFlights from "./pages/searchFlights";
 import Subscriptions from "./pages/Subscriptions";
 import FaqPage from "./pages/FaqPage";
 import Support from "./pages/Support";
+import Footer from "./components/footer";
+import Footer2 from "./components/footer2";
 
 const queryClient = new QueryClient();
+
+const FooterSwitcher = () => {
+  const location = useLocation();
+  const path = location.pathname;
+
+  return path === "/faq" ? <Footer2 /> : <Footer />;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -30,9 +41,11 @@ const App = () => (
           <Route path="/subscription" element={<Subscriptions />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/support" element={<Support />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+
+        {/* Conditionally render footer */}
+        <FooterSwitcher />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

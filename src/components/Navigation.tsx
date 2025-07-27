@@ -28,7 +28,7 @@ const Navigation = () => {
             <a
               key={item}
               href={item === "About Us" ? "/about" : item === "Home" ? "/" : item === "Search Flights" ? "/searchflights" : item === "Subscription" ? "/subscription" : item === "FAQ's" ? "/faq" : item === "Support" ? "/support" : "#" }
-              className="text-white hover:text-primary-foreground transition-colors text-sm font-medium"
+              className="text-white hover:text-primary-foreground transition-colors text-sm font-poppins font-medium"
             >
               {item}
             </a>
@@ -37,12 +37,12 @@ const Navigation = () => {
 
         {/* Desktop Buttons - unchanged */}
         <div className="hidden lg:flex items-center gap-3">
-          <Button variant="outline" asChild className="bg-transparent border-transparent text-white hover:bg-white hover:text-primary">
+          <Button variant="outline" asChild className="bg-transparent border-transparent text-white hover:bg-white font-poppins hover:text-primary">
             <a href="/register">
             Register
             </a>
           </Button>
-          <Button asChild className="bg-orange-500 hover:bg-orange-500">
+          <Button asChild className="bg-orange-500 font-poppins hover:bg-orange-500">
             <a href="/login">Login</a>
           </Button>
         </div>

@@ -44,7 +44,7 @@ const Support = () => {
   </div>
 </div>
 
-      <Footer/>
+      
       </div>
   );
 }

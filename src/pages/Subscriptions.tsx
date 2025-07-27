@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import PricingSection2 from "@/components/pricingSection2";
-import BlogSection from "@/components/blogsection";
+import BlogSection2 from "@/components/blogsection2";
 import Footer from "@/components/footer";
 import TestimonialCard from "@/components/testimonialsection";
 import Whysoarfare from "@/components/whysoarfaresection";
@@ -21,9 +21,9 @@ const Subscriptions = () => {
       <div className="flex justify-center items-center">
   <Whysoarfare />
 </div>
-      <BlogSection/>
+      <BlogSection2/>
       <TestimonialCard/>
-      <Footer/>
+      
       </div>
   );
 }

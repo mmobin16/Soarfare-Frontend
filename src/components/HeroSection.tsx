@@ -1,6 +1,6 @@
 // import FlightSearchForm from "./FlightSearchForm";
 import FlightSearchComponent from "./flightsearchform2";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/Rectangle 311.png";
 
 const HeroSection = () => {
   return (
@@ -19,10 +19,10 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col flex-1">
         <div className="flex-1 flex items-center justify-start px-4 sm:px-6 lg:px-12">
           <div className="ml-4 sm:ml-8 lg:ml-12 text-center sm:text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-2 sm:mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-poppins font-bold text-white leading-tight mb-2 sm:mb-4">
               Plan <span className="text-orange-500">Ahead</span>
             </h1>
-            <p className="text-white text-base sm:text-lg md:text-xl max-w-xl mx-auto sm:mx-0">
+            <p className="text-white text-base font-barlow sm:text-lg md:text-xl max-w-xl mx-auto sm:mx-0">
               Take control of your travel goals with flexible monthly savings..
             </p>
           </div>

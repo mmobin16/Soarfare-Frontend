@@ -23,7 +23,7 @@ const Index = () => {
       <BlogSection />
       <FAQSection />
       <TestimonialSection />
-      <Footer />
+      
     </div>
   );
 };

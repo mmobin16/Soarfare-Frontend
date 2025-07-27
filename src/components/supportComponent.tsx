@@ -28,10 +28,10 @@ const SoarFareSupport = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-6xl font-bold mb-4" style={{ color: '#081C3A' }}>
+          <h1 className="text-6xl font-semibold font-poppins mb-4" style={{ color: '#081C3A' }}>
             Support
           </h1>
-          <p className="text-gray-600 text-lg max-w-md mx-auto leading-relaxed">
+          <p className="text-gray-600 font-barlow text-lg max-w-md mx-auto leading-relaxed">
             SoarFare is great for those that love to travel to always be building up points for the next great adventure!
           </p>
         </div>
@@ -40,16 +40,16 @@ const SoarFareSupport = () => {
           {/* Left Side - Contact Info */}
           <div>
             <div className="mb-8">
-              <h2 className="text-orange-500 text-sm font-semibold uppercase tracking-wide mb-2">
+              <h2 className="text-orange-500 font-poppins text-sm font-semibold uppercase tracking-wide mb-2">
                 GET IN TOUCH
               </h2>
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#081C3A' }}>
+              <h3 className="text-3xl font-poppins font-semibold mb-4" style={{ color: '#081C3A' }}>
                 Facing issues or want to know something?
               </h3>
-              <p className="text-gray-600 text-base leading-relaxed mb-2">
+              <p className="text-[#555555] font-barlow text-base leading-relaxed mb-2">
                 We are here to answer any question you might have or resolve any issue you are facing, just fill out the form or send us email and we will do our best to help you out there!
               </p>
-              <p className="text-gray-700 font-medium">
+              <p className="text-[#555555] font-barlow font-bold">
                 Happy Travels!
               </p>
             </div>
@@ -59,11 +59,11 @@ const SoarFareSupport = () => {
               {/* Email Card */}
               <div className="bg-white rounded-2xl border-2 border-orange-500 p-6 flex items-center space-x-4">
                 <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-white" />
+                  <Mail className="w-6 h-6 text-white " />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">E-Mail Address:</h4>
-                  <p className="text-gray-700">contact@soarfare.com</p>
+                  <h4 className="font-semibold font-barlow text-gray-900 mb-1">E-Mail Address:</h4>
+                  <p className="text-gray-700 font-barlow">contact@soarfare.com</p>
                 </div>
               </div>
 
@@ -73,8 +73,8 @@ const SoarFareSupport = () => {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Phone Number:</h4>
-                  <p className="text-gray-700">+123 456 78894 459</p>
+                  <h4 className="font-semibold font-barlow text-gray-900 mb-1">Phone Number:</h4>
+                  <p className="text-gray-700 font-barlow">+123 456 78894 459</p>
                 </div>
               </div>
 
@@ -84,8 +84,8 @@ const SoarFareSupport = () => {
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Address:</h4>
-                  <p className="text-gray-700">67B Gregorio Grove, Jaskolskiville</p>
+                  <h4 className="font-semibold text-gray-900 mb-1 font-barlow">Address:</h4>
+                  <p className="text-gray-700 font-barlow">67B Gregorio Grove, Jaskolskiville</p>
                 </div>
               </div>
             </div>

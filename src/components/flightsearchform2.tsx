@@ -29,12 +29,12 @@ const FlightSearchComponent = () => {
   };
 
   return (
-    <div className="w-full bg-transparent text-white">
+    <div className="w-full bg-transparent text-white relative">
       {/* Search Bar Container */}
       <div className="bg-transparent p-3 sm:p-6">
         <div className="max-w-7xl mx-auto">
-          {/* Desktop Layout - unchanged */}
-          <div className="hidden lg:flex items-center bg-[#081C3A] rounded-2xl shadow-2xl overflow-hidden">
+          {/* Desktop Layout */}
+          <div className="hidden lg:flex items-center bg-[#081C3A] rounded-2xl shadow-2xl">
             
             {/* From Section */}
             <div className="relative flex-1">
@@ -52,34 +52,6 @@ const FlightSearchComponent = () => {
                   {fromLocation}
                 </button>
               </div>
-              
-              {/* From Dropdown */}
-              {showFromDropdown && (
-                <div className="absolute top-full left-0 w-96 bg-white text-black rounded-lg shadow-xl z-50 mt-1">
-                  {locations.map((location, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setFromLocation(location.name);
-                        setShowFromDropdown(false);
-                      }}
-                      className="w-full p-4 text-left hover:bg-gray-100 transition-colors flex items-center space-x-3 border-b border-gray-200 last:border-b-0"
-                    >
-                      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                        {location.code ? (
-                          <Plane className="w-4 h-4 text-gray-600" />
-                        ) : (
-                          <MapPin className="w-4 h-4 text-gray-600" />
-                        )}
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900">{location.name}</div>
-                        <div className="text-sm text-gray-500">{location.country}</div>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Swap Button */}
@@ -109,34 +81,6 @@ const FlightSearchComponent = () => {
                   <ChevronDown className="w-4 h-4 ml-2" />
                 </button>
               </div>
-              
-              {/* To Dropdown */}
-              {showToDropdown && (
-                <div className="absolute top-full left-0 w-96 bg-white text-black rounded-lg shadow-xl z-50 mt-1">
-                  {locations.map((location, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setToLocation(location.name);
-                        setShowToDropdown(false);
-                      }}
-                      className="w-full p-4 text-left hover:bg-gray-100 transition-colors flex items-center space-x-3 border-b border-gray-200 last:border-b-0"
-                    >
-                      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                        {location.code ? (
-                          <Plane className="w-4 h-4 text-gray-600" />
-                        ) : (
-                          <MapPin className="w-4 h-4 text-gray-600" />
-                        )}
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900">{location.name}</div>
-                        <div className="text-sm text-gray-500">{location.country}</div>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Travel Date */}
@@ -172,24 +116,6 @@ const FlightSearchComponent = () => {
                 {seatsClass}
                 <ChevronDown className="w-4 h-4 ml-2" />
               </button>
-              
-              {/* Seats Dropdown */}
-              {showSeatsDropdown && (
-                <div className="absolute top-full left-0 w-48 bg-white text-black rounded-lg shadow-xl z-50 mt-1">
-                  {seatClasses.map((seatClass, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setSeatsClass(seatClass);
-                        setShowSeatsDropdown(false);
-                      }}
-                      className="w-full p-3 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 last:border-b-0"
-                    >
-                      {seatClass}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Travel Type */}
@@ -207,24 +133,6 @@ const FlightSearchComponent = () => {
                 {travelType}
                 <ChevronDown className="w-4 h-4 ml-2" />
               </button>
-              
-              {/* Travel Type Dropdown */}
-              {showTravelTypeDropdown && (
-                <div className="absolute top-full left-0 w-48 bg-white text-black rounded-lg shadow-xl z-50 mt-1">
-                  {travelTypes.map((type, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setTravelType(type);
-                        setShowTravelTypeDropdown(false);
-                      }}
-                      className="w-full p-3 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 last:border-b-0"
-                    >
-                      {type}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Search Button */}
@@ -236,11 +144,11 @@ const FlightSearchComponent = () => {
           </div>
 
           {/* Mobile Layout */}
-          <div className="lg:hidden bg-[#081C3A] rounded-2xl shadow-2xl overflow-hidden">
+          <div className="lg:hidden bg-[#081C3A] rounded-2xl shadow-2xl">
             {/* Row 1: From, Swap, To */}
             <div className="flex items-center">
               {/* From Section */}
-              <div className="relative flex-1">
+              <div className="flex-1">
                 <div className="p-3 border-r border-gray-600">
                   <div className="text-xs text-gray-300 mb-1">From</div>
                   <button
@@ -255,34 +163,6 @@ const FlightSearchComponent = () => {
                     {fromLocation}
                   </button>
                 </div>
-                
-                {/* From Dropdown - Mobile */}
-                {showFromDropdown && (
-                  <div className="absolute top-full left-0 right-0 bg-white text-black rounded-lg shadow-xl z-50 mt-1 mx-2">
-                    {locations.map((location, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setFromLocation(location.name);
-                          setShowFromDropdown(false);
-                        }}
-                        className="w-full p-3 text-left hover:bg-gray-100 transition-colors flex items-center space-x-2 border-b border-gray-200 last:border-b-0"
-                      >
-                        <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                          {location.code ? (
-                            <Plane className="w-3 h-3 text-gray-600" />
-                          ) : (
-                            <MapPin className="w-3 h-3 text-gray-600" />
-                          )}
-                        </div>
-                        <div>
-                          <div className="font-medium text-gray-900 text-sm">{location.name}</div>
-                          <div className="text-xs text-gray-500">{location.country}</div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
               </div>
 
               {/* Swap Button */}
@@ -296,7 +176,7 @@ const FlightSearchComponent = () => {
               </div>
 
               {/* To Section */}
-              <div className="relative flex-1">
+              <div className="flex-1">
                 <div className="p-3">
                   <div className="text-xs text-gray-300 mb-1">To</div>
                   <button
@@ -312,34 +192,6 @@ const FlightSearchComponent = () => {
                     <ChevronDown className="w-3 h-3 ml-1 flex-shrink-0" />
                   </button>
                 </div>
-                
-                {/* To Dropdown - Mobile */}
-                {showToDropdown && (
-                  <div className="absolute top-full left-0 right-0 bg-white text-black rounded-lg shadow-xl z-50 mt-1 mx-2">
-                    {locations.map((location, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setToLocation(location.name);
-                          setShowToDropdown(false);
-                        }}
-                        className="w-full p-3 text-left hover:bg-gray-100 transition-colors flex items-center space-x-2 border-b border-gray-200 last:border-b-0"
-                      >
-                        <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                          {location.code ? (
-                            <Plane className="w-3 h-3 text-gray-600" />
-                          ) : (
-                            <MapPin className="w-3 h-3 text-gray-600" />
-                          )}
-                        </div>
-                        <div>
-                          <div className="font-medium text-gray-900 text-sm">{location.name}</div>
-                          <div className="text-xs text-gray-500">{location.country}</div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
               </div>
             </div>
 
@@ -370,7 +222,7 @@ const FlightSearchComponent = () => {
             {/* Row 3: Seats & Classes, Travel Type, Search */}
             <div className="flex items-center">
               {/* Seats & Classes */}
-              <div className="relative flex-1 p-3 border-r border-gray-600">
+              <div className="flex-1 p-3 border-r border-gray-600">
                 <div className="text-xs text-gray-300 mb-1">Class</div>
                 <button
                   onClick={() => {
@@ -384,28 +236,10 @@ const FlightSearchComponent = () => {
                   <span className="truncate">{seatsClass}</span>
                   <ChevronDown className="w-3 h-3 ml-1 flex-shrink-0" />
                 </button>
-                
-                {/* Seats Dropdown - Mobile */}
-                {showSeatsDropdown && (
-                  <div className="absolute top-full left-0 right-0 bg-white text-black rounded-lg shadow-xl z-50 mt-1 mx-2">
-                    {seatClasses.map((seatClass, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setSeatsClass(seatClass);
-                          setShowSeatsDropdown(false);
-                        }}
-                        className="w-full p-3 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 last:border-b-0 text-sm"
-                      >
-                        {seatClass}
-                      </button>
-                    ))}
-                  </div>
-                )}
               </div>
 
               {/* Travel Type */}
-              <div className="relative flex-1 p-3 border-r border-gray-600">
+              <div className="flex-1 p-3 border-r border-gray-600">
                 <div className="text-xs text-gray-300 mb-1">Type</div>
                 <button
                   onClick={() => {
@@ -419,24 +253,6 @@ const FlightSearchComponent = () => {
                   <span className="truncate">{travelType}</span>
                   <ChevronDown className="w-3 h-3 ml-1 flex-shrink-0" />
                 </button>
-                
-                {/* Travel Type Dropdown - Mobile */}
-                {showTravelTypeDropdown && (
-                  <div className="absolute top-full left-0 right-0 bg-white text-black rounded-lg shadow-xl z-50 mt-1 mx-2">
-                    {travelTypes.map((type, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setTravelType(type);
-                          setShowTravelTypeDropdown(false);
-                        }}
-                        className="w-full p-3 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 last:border-b-0 text-sm"
-                      >
-                        {type}
-                      </button>
-                    ))}
-                  </div>
-                )}
               </div>
 
               {/* Search Button */}
@@ -449,6 +265,237 @@ const FlightSearchComponent = () => {
           </div>
         </div>
       </div>
+
+      {/* External Dropdowns - positioned outside component bounds */}
+      {/* From Dropdown - Desktop */}
+      {showFromDropdown && (
+        <div className="hidden lg:block absolute top-full left-0 right-0 z-50 mt-2">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="ml-0 w-96 bg-white text-black rounded-lg shadow-xl">
+              {locations.map((location, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setFromLocation(location.name);
+                    setShowFromDropdown(false);
+                  }}
+                  className="w-full p-4 text-left hover:bg-gray-100 transition-colors flex items-center space-x-3 border-b border-gray-200 last:border-b-0"
+                >
+                  <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                    {location.code ? (
+                      <Plane className="w-4 h-4 text-gray-600" />
+                    ) : (
+                      <MapPin className="w-4 h-4 text-gray-600" />
+                    )}
+                  </div>
+                  <div>
+                    <div className="font-medium text-gray-900">{location.name}</div>
+                    <div className="text-sm text-gray-500">{location.country}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* To Dropdown - Desktop */}
+      {showToDropdown && (
+        <div className="hidden lg:block absolute top-full left-0 right-0 z-50 mt-2">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="ml-80 w-96 bg-white text-black rounded-lg shadow-xl">
+              {locations.map((location, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setToLocation(location.name);
+                    setShowToDropdown(false);
+                  }}
+                  className="w-full p-4 text-left hover:bg-gray-100 transition-colors flex items-center space-x-3 border-b border-gray-200 last:border-b-0"
+                >
+                  <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                    {location.code ? (
+                      <Plane className="w-4 h-4 text-gray-600" />
+                    ) : (
+                      <MapPin className="w-4 h-4 text-gray-600" />
+                    )}
+                  </div>
+                  <div>
+                    <div className="font-medium text-gray-900">{location.name}</div>
+                    <div className="text-sm text-gray-500">{location.country}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Seats Dropdown - Desktop */}
+      {showSeatsDropdown && (
+        <div className="hidden lg:block absolute top-full left-0 right-0 z-50 mt-2">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="ml-[700px] w-48 bg-white text-black rounded-lg shadow-xl">
+              {seatClasses.map((seatClass, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setSeatsClass(seatClass);
+                    setShowSeatsDropdown(false);
+                  }}
+                  className="w-full p-3 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 last:border-b-0"
+                >
+                  {seatClass}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Travel Type Dropdown - Desktop */}
+      {showTravelTypeDropdown && (
+        <div className="hidden lg:block absolute top-full left-0 right-0 z-50 mt-2">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="ml-[850px] w-48 bg-white text-black rounded-lg shadow-xl">
+              {travelTypes.map((type, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setTravelType(type);
+                    setShowTravelTypeDropdown(false);
+                  }}
+                  className="w-full p-3 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 last:border-b-0"
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Dropdowns - positioned outside component bounds */}
+      {/* From Dropdown - Mobile */}
+      {showFromDropdown && (
+        <div className="lg:hidden absolute top-full left-0 right-0 z-50 mt-2">
+          <div className="mx-4">
+            <div className="bg-white text-black rounded-lg shadow-xl">
+              {locations.map((location, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setFromLocation(location.name);
+                    setShowFromDropdown(false);
+                  }}
+                  className="w-full p-3 text-left hover:bg-gray-100 transition-colors flex items-center space-x-2 border-b border-gray-200 last:border-b-0"
+                >
+                  <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                    {location.code ? (
+                      <Plane className="w-3 h-3 text-gray-600" />
+                    ) : (
+                      <MapPin className="w-3 h-3 text-gray-600" />
+                    )}
+                  </div>
+                  <div>
+                    <div className="font-medium text-gray-900 text-sm">{location.name}</div>
+                    <div className="text-xs text-gray-500">{location.country}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* To Dropdown - Mobile */}
+      {showToDropdown && (
+        <div className="lg:hidden absolute top-full left-0 right-0 z-50 mt-2">
+          <div className="mx-4">
+            <div className="bg-white text-black rounded-lg shadow-xl">
+              {locations.map((location, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setToLocation(location.name);
+                    setShowToDropdown(false);
+                  }}
+                  className="w-full p-3 text-left hover:bg-gray-100 transition-colors flex items-center space-x-2 border-b border-gray-200 last:border-b-0"
+                >
+                  <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                    {location.code ? (
+                      <Plane className="w-3 h-3 text-gray-600" />
+                    ) : (
+                      <MapPin className="w-3 h-3 text-gray-600" />
+                    )}
+                  </div>
+                  <div>
+                    <div className="font-medium text-gray-900 text-sm">{location.name}</div>
+                    <div className="text-xs text-gray-500">{location.country}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Seats Dropdown - Mobile */}
+      {showSeatsDropdown && (
+        <div className="lg:hidden absolute top-full left-0 right-0 z-50 mt-2">
+          <div className="mx-4">
+            <div className="bg-white text-black rounded-lg shadow-xl">
+              {seatClasses.map((seatClass, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setSeatsClass(seatClass);
+                    setShowSeatsDropdown(false);
+                  }}
+                  className="w-full p-3 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 last:border-b-0 text-sm"
+                >
+                  {seatClass}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Travel Type Dropdown - Mobile */}
+      {showTravelTypeDropdown && (
+        <div className="lg:hidden absolute top-full left-0 right-0 z-50 mt-2">
+          <div className="mx-4">
+            <div className="bg-white text-black rounded-lg shadow-xl">
+              {travelTypes.map((type, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setTravelType(type);
+                    setShowTravelTypeDropdown(false);
+                  }}
+                  className="w-full p-3 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 last:border-b-0 text-sm"
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Backdrop to close dropdowns when clicking outside */}
+      {(showFromDropdown || showToDropdown || showSeatsDropdown || showTravelTypeDropdown) && (
+        <div 
+          className="fixed inset-0 z-40"
+          onClick={() => {
+            setShowFromDropdown(false);
+            setShowToDropdown(false);
+            setShowSeatsDropdown(false);
+            setShowTravelTypeDropdown(false);
+          }}
+        />
+      )}
     </div>
   );
 };

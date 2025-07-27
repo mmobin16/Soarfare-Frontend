@@ -43,11 +43,11 @@ const SoarFareFAQ = () => {
   const tabs = ["General", "My Dashboard", "Ticket Booking", "Altitude Rewards"];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 bg-white min-h-screen">
+    <div className="max-w-screen-xl mx-auto px-4 sm:px-8 py-8 sm:py-12 bg-white min-h-screen">
       {/* Header */}
       <div className="text-center mb-8 sm:mb-12">
-        <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 tracking-wide">FAQ'S</h1>
-        <p className="text-gray-600 text-base sm:text-lg max-w-md mx-auto leading-relaxed px-4 sm:px-0">
+        <h1 className="text-3xl sm:text-5xl font-poppins font-semibold text-[#0C2545] mb-3 sm:mb-4 tracking-wide">FAQ'S</h1>
+        <p className="text-[#0C2545] font-barlow text-base sm:text-lg max-w-md mx-auto leading-relaxed px-4 sm:px-0">
           SoarFare is great for those that love to travel to always be building up points for the next great adventure!
         </p>
       </div>
@@ -60,9 +60,9 @@ const SoarFareFAQ = () => {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-3 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`px-3 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-light font-poppins transition-colors whitespace-nowrap ${
                   activeTab === tab
-                    ? 'bg-white text-grey-800'
+                    ? 'bg-white text-black'
                     : 'bg-transparent text-white '
                 }`}
               >

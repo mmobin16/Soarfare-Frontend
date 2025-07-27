@@ -10,7 +10,7 @@ const FaqPage = () => {
         <Navigation />
       </div>
       <SoarFareFAQ/>
-      <Footer2/>
+      
       </div>
   );
 }

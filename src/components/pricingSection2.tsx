@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
 import { useState } from "react";
+import PricingCards from "./prisingcards";
 
 const PricingSection2 = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -58,10 +59,10 @@ const PricingSection2 = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold text-[#081C3A] mb-8">
+            <h2 className="text-4xl font-poppins font-semibold text-[#0C2545] mb-8">
             Choose a Plan<br/> that works for You
           </h2>
-          <p className="text-sm text-muted-foreground mb-2">SoarFare is great for those that love to travel to always be building up<br/> points for the next great adventure!</p>
+          <p className="text-sm font-barlow text-[#0C2545] mb-2">SoarFare is great for those that love to travel to always be building up<br/> points for the next great adventure!</p>
           
           
           {/* Toggle */}
@@ -90,79 +91,7 @@ const PricingSection2 = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {plans.map((plan, index) => (
-            <Card 
-              key={plan.name} 
-              className={`relative ${
-                plan.isPopular 
-                  ? "bg-orange-500 text-white border-orange-500" 
-                  : "bg-card"
-              }`}
-            >
-              {plan.isPopular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-white text-orange-500 hover:bg-white">
-                    Our most popular plan
-                  </Badge>
-                </div>
-              )}
-              
-              <CardHeader className="text-center pb-4">
-                <h3 className={`text-xl font-semibold ${
-                  plan.isPopular ? "text-white" : "text-foreground"
-                }`}>
-                  {plan.name}
-                </h3>
-                <p className={`text-sm ${
-                  plan.isPopular ? "text-white/90" : "text-muted-foreground"
-                }`}>
-                  {plan.description}
-                </p>
-                
-                <div className="mt-6">
-                  <span className={`text-4xl font-bold ${
-                    plan.isPopular ? "text-white" : "text-foreground"
-                  }`}>
-                    {plan.price}
-                  </span>
-                  <span className={`text-sm ${
-                    plan.isPopular ? "text-white/80" : "text-muted-foreground"
-                  }`}>
-                    {plan.period}
-                  </span>
-                </div>
-              </CardHeader>
-              
-              <CardContent className="space-y-6">
-                <Button 
-                  className={`w-full ${
-                    plan.isPopular 
-                      ? "bg-white text-orange-500 hover:bg-white/90" 
-                      : "bg-primary text-primary-foreground hover:bg-primary/90"
-                  }`}
-                >
-                  {plan.buttonText}
-                </Button>
-                
-                <div className="space-y-3">
-                  {plan.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start gap-3">
-                      <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
-                        plan.isPopular ? "text-white" : "text-green-500"
-                      }`} />
-                      <span className={`text-sm ${
-                        plan.isPopular ? "text-white/90" : "text-muted-foreground"
-                      }`}>
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <PricingCards/>
       </div>
     </div>
   );
