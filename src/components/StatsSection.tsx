@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Container from "@/assets/Container.png";
 
 const StatsSection = () => {
   return (
@@ -23,7 +24,7 @@ const StatsSection = () => {
             {/* Main Image */}
             <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
               <img 
-                src="/image 5 (1).png" 
+                src="/Container.png" 
                 alt="Two travelers sitting and enjoying the view"
                 className="rounded-xl w-full h-auto object-cover shadow-md relative z-10"
               />

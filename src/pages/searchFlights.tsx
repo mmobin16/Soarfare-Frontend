@@ -198,7 +198,7 @@ const SearchFlights = () => {
   const FiltersContent = () => (
     <div className="w-80 space-y-6">
       {/* Filter by price */}
-      <div className="bg-white rounded-lg p-4 border">
+      <div className="bg-white rounded-lg p-4 border shadow-xl">
         <h3 className="font-semibold mb-4">Filter by price</h3>
         
         <div 
@@ -216,16 +216,24 @@ const SearchFlights = () => {
             ></div>
             
             {/* Thumbs */}
-            <div 
-              className="absolute h-4 w-4 bg-orange-500 rounded-full -top-1 -ml-2 cursor-pointer"
-              style={{ left: `${leftThumb}%` }}
-              onMouseDown={handleMouseDownLeft}
-            ></div>
-            <div 
-              className="absolute h-4 w-4 bg-orange-500 rounded-full -top-1 -ml-2 cursor-pointer"
-              style={{ left: `${rightThumb}%` }}
-              onMouseDown={handleMouseDownRight}
-            ></div>
+           <div 
+  className="absolute h-4 w-4 bg-white rounded-full -top-1 -ml-2 cursor-pointer"
+  style={{ 
+    left: `${leftThumb}%`, 
+    boxShadow: '0.58px 0.58px 2.32px 1.16px #00000052' 
+  }}
+  onMouseDown={handleMouseDownLeft}
+/>
+
+<div 
+  className="absolute h-4 w-4 bg-white rounded-full -top-1 -ml-2 cursor-pointer"
+  style={{ 
+    left: `${rightThumb}%`, 
+    boxShadow: '0.58px 0.58px 2.32px 1.16px #00000052' 
+  }}
+  onMouseDown={handleMouseDownRight}
+/>
+
           </div>
         </div>
 
@@ -241,7 +249,7 @@ const SearchFlights = () => {
         { title: 'Airlines', options: ['Qatar Airways', 'Fly Emirates', 'Nova Air', 'Air Asia', 'Singapore Airlines'] },
         { title: 'Refundable', options: ['Yes', 'No', 'As per rules'] }
       ].map(({ title, options }) => (
-        <div key={title} className="bg-white rounded-lg p-4 border">
+        <div key={title} className="bg-white rounded-lg p-4 border shadow-xl">
           <h3 className="font-semibold mb-4">{title}</h3>
           <div className="space-y-3">
             {options.map((label, i) => (
@@ -259,56 +267,73 @@ const SearchFlights = () => {
     </div>
   );
 
-  const FlightCard = () => (
-    <div className="bg-white rounded-lg border p-4">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        {/* Left section - Qatar Airways logo */}
-        <div className="flex flex-col items-center md:items-start w-full md:w-24">
-          <img src="/qatar-airways-seeklogo.png" alt="Qatar Airways" className="w-24 h-12 object-contain mb-2" />
-          <button className="text-xs text-gray-500 hover:underline cursor-pointer">Show more ▼</button>
+const FlightCard = () => (
+  <div className="bg-white rounded-lg border border-gray-200 max-w-4xl mx-auto shadow-sm overflow-hidden">
+    <div className="flex flex-col md:flex-row items-center justify-between">
+      {/* Left section - Qatar Airways logo and show more */}
+      <div className="flex flex-col items-start w-24 md:w-32 p-4 md:p-6">
+        <img src="/qatar-airways-seeklogo.png" alt="Qatar Airways" className="w-20 md:w-24 h-10 md:h-12 object-contain mb-2" />
+        <button className="text-xs text-gray-500 hover:underline flex items-center">
+          Show more 
+          <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Middle section - Flight details */}
+      <div className="flex flex-col md:flex-row items-center justify-center flex-1 py-4 md:py-6 px-4">
+        {/* From section */}
+        <div className="text-left md:text-left text-center min-w-[150px] md:min-w-[180px] mb-4 md:mb-0">
+          <div className="text-xs text-gray-500 mb-1">From</div>
+          <div className="font-semibold text-xl md:text-2xl text-gray-900 mb-1">New York</div>
+          <div className="text-sm text-gray-600">JFK - John F. Kennedy In...</div>
         </div>
 
-        {/* Middle section - Flight details */}
-        <div className="flex flex-col md:flex-row md:items-center justify-center flex-1 px-2 md:px-8 gap-6">
-          {/* From section */}
-          <div className="text-left min-w-[160px]">
-            <div className="text-xs font-poppins text-[#818090] mb-1">From</div>
-            <div className="font-semibold font-barlow text-lg">New York</div>
-            <div className="text-sm font-barlow text-[#212529]">JFK - John F. Kennedy Intern...</div>
-          </div>
+        {/* Flight path with arrow */}
+<div className="flex flex-col items-center mx-4 md:mx-8 mb-4 md:mb-0">
+  <div
+    className="w-12 md:w-14 h-12 md:h-14 rounded-full bg-orange-500 flex items-center justify-center mb-2"
+    style={{
+      boxShadow: '1.26px 5.03px 15.1px 0px #0000001A',
+    }}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 md:w-7 h-6 md:h-7 text-white"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2.5"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+  </div>
+  <div className="text-sm font-medium text-gray-900 mb-1">Non-stop</div>
+  <div className="text-xs text-gray-500">01h 05minute</div>
+</div>
 
-          {/* Flight path with arrow */}
-          <div className="flex flex-col items-center">
-            <div className="p-1 border border-gray-100 rounded-full shadow-inner">
-              <div className="w-12 h-12 rounded-full bg-orange-500 border-2 border-white flex items-center justify-center shadow-3xl">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
-                </svg>
-              </div>
-            </div>
 
-            <div className="text-sm font-medium text-gray-900">Non-stop</div>
-            <div className="text-xs font-poppins text-[#818090]">1hr 05minute</div>
-          </div>
-
-          {/* To section */}
-          <div className="text-left min-w-[160px]">
-            <div className="text-xs font-poppins text-[#818090] mb-1">To</div>
-            <div className="font-semibold font-barlow text-lg">London</div>
-            <div className="text-sm font-barlow text-[#212529]">LCY, London city airport</div>
-          </div>
-        </div>
-
-        {/* Right section - Price and booking */}
-        <div className="bg-orange-100 rounded-lg p-4 text-center w-full md:w-40 flex flex-col justify-center">
-          <div className="font-semibold text-lg mb-3 text-gray-800">300 Points</div>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm px-3 py-2 rounded-md">
-            Book Now
-          </button>
+        {/* To section */}
+        <div className="text-left md:text-left text-center min-w-[150px] md:min-w-[180px] mb-4 md:mb-0">
+          <div className="text-xs text-gray-500 mb-1">To</div>
+          <div className="font-semibold text-xl md:text-2xl text-gray-900 mb-1">London</div>
+          <div className="text-sm text-gray-600">LCY, London city airport</div>
         </div>
       </div>
+
+      {/* Right section - Price and booking */}
+      <div className="bg-orange-100 text-center w-full md:w-48 flex flex-col justify-center py-6 md:py-8 px-6 md:-mr-px md:-my-px md:rounded-r-lg">
+        <div className="font-semi text-xl md:text-2xl mb-4 text-gray-900">300 Points</div>
+        <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-4 py-2 rounded-lg transition-colors">
+          Book Now
+        </button>
+      </div>
     </div>
-  );
+  </div>
+);
+
+
 
   return (
     <div className="min-h-screen bg-background">

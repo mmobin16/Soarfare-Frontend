@@ -37,13 +37,14 @@ const VideoSection = () => {
       className="relative w-full h-screen overflow-hidden"
     >
       <video
-        ref={videoRef}
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/WhatsApp Video 2025-07-28 at 16.50.10_7db1428e.mp4"
-        loop
-        muted
-        playsInline
-      />
+  ref={videoRef}
+  className="absolute top-0 left-0 w-full h-full object-fill"
+  src="/WhatsApp Video 2025-07-28 at 16.50.10_7db1428e.mp4"
+  loop
+  muted
+  playsInline
+/>
+
       <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
         
       </div>

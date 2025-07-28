@@ -40,7 +40,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
             
             {/* Brand Section */}
-            <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1 text-center sm:text-left mb-6 sm:mb-0">
+            <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1 text-center sm:text-left mb-6 sm:mb-0 -mt-16">
               <div className="mb-4 sm:mb-6">
                 <img 
                   src="/footer logo.png" 

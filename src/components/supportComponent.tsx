@@ -55,40 +55,41 @@ const SoarFareSupport = () => {
             </div>
 
             {/* Contact Cards */}
-            <div className="space-y-4">
-              {/* Email Card */}
-              <div className="bg-white rounded-2xl border-2 border-orange-500 p-6 flex items-center space-x-4">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-white " />
-                </div>
-                <div>
-                  <h4 className="font-semibold font-barlow text-gray-900 mb-1">E-Mail Address:</h4>
-                  <p className="text-gray-700 font-barlow">contact@soarfare.com</p>
-                </div>
-              </div>
+           <div className="space-y-4">
+  {/* Email Card */}
+  <div className="bg-white rounded-2xl border-2 border-orange-500 p-6 flex items-center space-x-4 transition-transform hover:scale-105 hover:shadow-lg">
+    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+      <Mail className="w-6 h-6 text-white" />
+    </div>
+    <div>
+      <h4 className="font-semibold font-barlow text-gray-900 mb-1">E-Mail Address:</h4>
+      <p className="text-gray-700 font-barlow">contact@soarfare.com</p>
+    </div>
+  </div>
 
-              {/* Phone Card */}
-              <div className="bg-white rounded-2xl border-2 border-orange-500 p-6 flex items-center space-x-4">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold font-barlow text-gray-900 mb-1">Phone Number:</h4>
-                  <p className="text-gray-700 font-barlow">+123 456 78894 459</p>
-                </div>
-              </div>
+  {/* Phone Card */}
+  <div className="bg-white rounded-2xl border-2 border-orange-500 p-6 flex items-center space-x-4 transition-transform hover:scale-105 hover:shadow-lg">
+    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+      <Phone className="w-6 h-6 text-white" />
+    </div>
+    <div>
+      <h4 className="font-semibold font-barlow text-gray-900 mb-1">Phone Number:</h4>
+      <p className="text-gray-700 font-barlow">+123 456 78894 459</p>
+    </div>
+  </div>
 
-              {/* Address Card */}
-              <div className="bg-white rounded-2xl border-2 border-orange-500 p-6 flex items-center space-x-4">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1 font-barlow">Address:</h4>
-                  <p className="text-gray-700 font-barlow">67B Gregorio Grove, Jaskolskiville</p>
-                </div>
-              </div>
-            </div>
+  {/* Address Card */}
+  <div className="bg-white rounded-2xl border-2 border-orange-500 p-6 flex items-center space-x-4 transition-transform hover:scale-105 hover:shadow-lg">
+    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+      <MapPin className="w-6 h-6 text-white" />
+    </div>
+    <div>
+      <h4 className="font-semibold text-gray-900 mb-1 font-barlow">Address:</h4>
+      <p className="text-gray-700 font-barlow">67B Gregorio Grove, Jaskolskiville</p>
+    </div>
+  </div>
+</div>
+
           </div>
 
           {/* Right Side - Contact Form */}

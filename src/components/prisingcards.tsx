@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Check } from 'lucide-react';
 
 const PricingCards = () => {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   const plans = [
     {
       name: "Basic Plan",
@@ -49,23 +51,35 @@ const PricingCards = () => {
     }
   ];
 
+  // Determine which card should be orange
+  const getActiveCard = () => {
+    return hoveredCard || "Standard";
+  };
+
+  const isCardActive = (planName) => {
+    return getActiveCard() === planName;
+  };
+
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-  {plans.map((plan) => (
-    <div
-      key={plan.name}
-      className={`relative rounded-2xl p-6 border shadow-sm group transition-all duration-300 ${
-        plan.name === "Standard" 
-          ? "bg-orange-500 border-orange-500 hover:bg-orange-500" 
-          : "bg-white border-gray-200 hover:bg-orange-500"
-      }`}
-    >
-      {/* Top-right Icon */}
-      <div className="absolute top-6 right-6">
-        <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
-          {plan.name === "Basic Plan" && (
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {plans.map((plan) => (
+          <div
+            key={plan.name}
+            className={`relative rounded-2xl p-6 border shadow-sm transition-all duration-300 cursor-pointer ${
+              isCardActive(plan.name)
+                ? "bg-orange-500 border-orange-500" 
+                : "bg-white border-gray-200"
+            }`}
+            onMouseEnter={() => setHoveredCard(plan.name)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            {/* Top-right Icon */}
+            <div className="absolute top-6 right-6">
+              <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                {plan.name === "Basic Plan" && (
+                  // Add Basic Plan SVG here
+                  <div><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_415_1018)">
 <g clip-path="url(#clip1_415_1018)">
 <path d="M23.5589 12.7401L22.1989 11.1601C21.9389 10.8601 21.7289 10.3001 21.7289 9.90006V8.20006C21.7289 7.14006 20.8589 6.27006 19.7989 6.27006H18.0989C17.7089 6.27006 17.1389 6.06006 16.8389 5.80006L15.2589 4.44006C14.5689 3.85006 13.4389 3.85006 12.7389 4.44006L11.1689 5.81006C10.8689 6.06006 10.2989 6.27006 9.90891 6.27006H8.17891C7.11891 6.27006 6.24891 7.14006 6.24891 8.20006V9.91006C6.24891 10.3001 6.03891 10.8601 5.78891 11.1601L4.43891 12.7501C3.85891 13.4401 3.85891 14.5601 4.43891 15.2501L5.78891 16.8401C6.03891 17.1401 6.24891 17.7001 6.24891 18.0901V19.8001C6.24891 20.8601 7.11891 21.7301 8.17891 21.7301H9.90891C10.2989 21.7301 10.8689 21.9401 11.1689 22.2001L12.7489 23.5601C13.4389 24.1501 14.5689 24.1501 15.2689 23.5601L16.8489 22.2001C17.1489 21.9401 17.7089 21.7301 18.1089 21.7301H19.8089C20.8689 21.7301 21.7389 20.8601 21.7389 19.8001V18.1001C21.7389 17.7101 21.9489 17.1401 22.2089 16.8401L23.5689 15.2601C24.1489 14.5701 24.1489 13.4301 23.5589 12.7401ZM18.6789 14.0001L17.5089 17.5601C17.3589 18.1501 16.7289 18.6301 16.0889 18.6301H14.2389C13.9189 18.6301 13.4689 18.5201 13.2689 18.3201L11.7989 17.1701C11.7689 17.8101 11.4789 18.0801 10.7689 18.0801H10.2889C9.54891 18.0801 9.24891 17.7901 9.24891 17.0901V12.3101C9.24891 11.6101 9.54891 11.3201 10.2889 11.3201H10.7789C11.5189 11.3201 11.8189 11.6101 11.8189 12.3101V12.6701L13.7589 9.79006C13.9589 9.48006 14.4689 9.26006 14.8989 9.43006C15.3689 9.59006 15.6689 10.1101 15.5689 10.5701L15.3289 12.1301C15.3089 12.2701 15.3389 12.4001 15.4289 12.5001C15.5089 12.5901 15.6289 12.6501 15.7589 12.6501H17.7089C18.0889 12.6501 18.4089 12.8001 18.5989 13.0701C18.7689 13.3301 18.7989 13.6601 18.6789 14.0001Z" fill="#0E1226"/>
@@ -81,9 +95,11 @@ const PricingCards = () => {
 </defs>
 </svg>
 
-          )}
-          {plan.name === "Standard" && (
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+</div>
+                )}
+                {plan.name === "Standard" && (
+                  // Add Standard SVG here
+                  <div><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_415_1064)">
 <g clip-path="url(#clip1_415_1064)">
 <path d="M22.4797 19.9311L20.9667 20.2891C20.8011 20.3265 20.6495 20.4101 20.5293 20.53C20.4092 20.65 20.3254 20.8015 20.2877 20.9671L19.9677 22.3151C19.7927 23.0481 18.8577 23.2771 18.3717 22.7001L15.6317 19.5461C15.5807 19.4874 15.5455 19.4167 15.5294 19.3406C15.5133 19.2646 15.5169 19.1857 15.5399 19.1114C15.5628 19.0371 15.6043 18.9699 15.6604 18.9161C15.7166 18.8623 15.7855 18.8238 15.8607 18.8041C17.4877 18.4085 18.9437 17.4988 20.0127 16.2101C20.0522 16.1595 20.102 16.1178 20.1587 16.0877C20.2155 16.0576 20.2779 16.0398 20.3419 16.0355C20.406 16.0311 20.4703 16.0403 20.5305 16.0625C20.5908 16.0847 20.6457 16.1193 20.6917 16.1641L22.7267 18.1991C23.4227 18.8951 23.1767 19.7661 22.4797 19.9311Z" fill="#F07822"/>
@@ -99,11 +115,11 @@ const PricingCards = () => {
 <rect width="28" height="28" fill="white"/>
 </clipPath>
 </defs>
-</svg>
-
-          )}
-          {plan.name === "Premium" && (
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg></div>
+                )}
+                {plan.name === "Premium" && (
+                  // Add Premium SVG here
+                  <div><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_415_1111)">
 <g clip-path="url(#clip1_415_1111)">
 <path d="M13.3135 19.7289H11.2505C10.7648 19.7305 10.2995 19.9241 9.95612 20.2675C9.61271 20.6109 9.41908 21.0763 9.4175 21.5619V21.7919H8.5005C8.31861 21.7932 8.14452 21.866 8.01581 21.9945C7.88709 22.123 7.81407 22.297 7.8125 22.4789C7.8125 22.8549 8.1245 23.1669 8.5005 23.1669H19.5005C19.6826 23.1659 19.857 23.093 19.9858 22.9642C20.1146 22.8354 20.1874 22.6611 20.1885 22.4789C20.1872 22.2968 20.1143 22.1226 19.9855 21.9939C19.8568 21.8651 19.6826 21.7922 19.5005 21.7909H18.5835V21.5619C18.5819 21.0763 18.3883 20.6109 18.0449 20.2675C17.7015 19.9241 17.2362 19.7305 16.7505 19.7289H14.6875V17.6289C14.4595 17.6552 14.23 17.6675 14.0005 17.6659C13.7705 17.6659 13.5425 17.6569 13.3125 17.6299L13.3135 19.7289Z" fill="#0E1226"/>
@@ -118,95 +134,82 @@ const PricingCards = () => {
 <rect width="28" height="28" fill="white"/>
 </clipPath>
 </defs>
-</svg>
-
-          )}
-          {!["Basic Plan", "Standard", "Premium"].includes(plan.name) && (
-            <svg
-              width="28"
-              height="28"
-              fill="currentColor"
-              className="text-gray-700 group-hover:text-white"
-              viewBox="0 0 28 28"
-            >
-              <circle cx="14" cy="14" r="12" />
-            </svg>
-          )}
-        </div>
-      </div>
-
-      {/* Plan name and description */}
-      <div className="mb-8">
-        <h3 className={`text-xl font-semibold mb-2 ${
-          plan.name === "Standard" 
-            ? "text-white" 
-            : "text-gray-900 group-hover:text-white"
-        }`}>{plan.name}</h3>
-        <p className={`text-sm leading-relaxed ${
-          plan.name === "Standard" 
-            ? "text-white" 
-            : "text-gray-600 group-hover:text-white"
-        }`}>{plan.description}</p>
-      </div>
-
-      {/* Price */}
-      <div className="mb-8">
-        <div className="flex items-baseline">
-          <span className={`text-4xl font-semibold ${
-            plan.name === "Standard" 
-              ? "text-white" 
-              : "text-gray-900 group-hover:text-white"
-          }`}>{plan.price}</span>
-          <span className={`text-sm ml-1 ${
-            plan.name === "Standard" 
-              ? "text-white" 
-              : "text-gray-500 group-hover:text-white"
-          }`}>{plan.period}</span>
-        </div>
-      </div>
-
-      {/* Join button */}
-      <div className="mb-8 flex justify-center">
-        {plan.name === "Standard" ? (
-          <button className="w-56 py-2 px-8 rounded-xl font-medium text-sm transition-all duration-300 bg-white text-orange-500 border border-transparent group-hover:text-orange-500 group-hover:border-transparent">
-            {plan.buttonText}
-          </button>
-        ) : (
-          <button className="w-56 py-2 px-8 rounded-xl font-medium text-sm transition-all duration-300 bg-orange-500 text-white border border-orange-500 group-hover:bg-white group-hover:text-orange-500 group-hover:border-orange-500">
-            {plan.buttonText}
-          </button>
-        )}
-      </div>
-
-      {/* Features */}
-      <div className="space-y-4">
-        {plan.features.map((feature, featureIndex) => (
-          <div key={featureIndex} className="flex items-start gap-3">
-            <div className={`w-8 h-8 border-2 rounded-full flex items-center justify-center ${
-              plan.name === "Standard"
-                ? "border-white"
-                : "border-black group-hover:border-white"
-            }`}>
-              <Check className={`w-5 h-5 ${
-                plan.name === "Standard"
-                  ? "text-white"
-                  : "text-black group-hover:text-white"
-              }`} />
+</svg></div>
+                )}
+              </div>
             </div>
-            <span className={`text-sm leading-relaxed ${
-              plan.name === "Standard"
-                ? "text-white"
-                : "text-gray-600 group-hover:text-white"
-            }`}>
-              {feature}
-            </span>
+
+            {/* Plan name and description */}
+            <div className="mb-8">
+              <h3 className={`text-xl font-semibold mb-2 ${
+                isCardActive(plan.name)
+                  ? "text-white" 
+                  : "text-gray-900"
+              }`}>{plan.name}</h3>
+              <p className={`text-sm leading-relaxed ${
+                isCardActive(plan.name)
+                  ? "text-white" 
+                  : "text-gray-600"
+              }`}>{plan.description}</p>
+            </div>
+
+            {/* Price */}
+            <div className="mb-8">
+              <div className="flex items-baseline">
+                <span className={`text-4xl font-semibold ${
+                  isCardActive(plan.name)
+                    ? "text-white" 
+                    : "text-gray-900"
+                }`}>{plan.price}</span>
+                <span className={`text-sm ml-1 ${
+                  isCardActive(plan.name)
+                    ? "text-white" 
+                    : "text-gray-500"
+                }`}>{plan.period}</span>
+              </div>
+            </div>
+
+            {/* Join button */}
+            <div className="mb-8 flex justify-center">
+              {isCardActive(plan.name) ? (
+                <button className="w-56 py-2 px-8 rounded-xl font-medium text-sm transition-all duration-300 bg-white text-orange-500 border border-transparent">
+                  {plan.buttonText}
+                </button>
+              ) : (
+                <button className="w-56 py-2 px-8 rounded-xl font-medium text-sm transition-all duration-300 bg-orange-500 text-white border border-orange-500">
+                  {plan.buttonText}
+                </button>
+              )}
+            </div>
+
+            {/* Features */}
+            <div className="space-y-4">
+              {plan.features.map((feature, featureIndex) => (
+                <div key={featureIndex} className="flex items-start gap-3">
+                  <div className={`w-8 h-8 border-2 rounded-full flex items-center justify-center ${
+                    isCardActive(plan.name)
+                      ? "border-white"
+                      : "border-black"
+                  }`}>
+                    <Check className={`w-5 h-5 ${
+                      isCardActive(plan.name)
+                        ? "text-white"
+                        : "text-black"
+                    }`} />
+                  </div>
+                  <span className={`text-sm leading-relaxed ${
+                    isCardActive(plan.name)
+                      ? "text-white"
+                      : "text-gray-600"
+                  }`}>
+                    {feature}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
-    </div>
-  ))}
-</div>
-
     </div>
   );
 };

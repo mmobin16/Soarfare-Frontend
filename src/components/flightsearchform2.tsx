@@ -618,84 +618,53 @@ const FlightSearchComponent = () => {
 
                 {/* Seats Dropdown - Mobile */}
                 {showSeatsDropdown && (
-                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 mx-3">
-                    <div className="bg-white text-black rounded-lg shadow-xl border">
-                      <div className="p-4">
-                        <div className="mb-4">
-                          <label className="block text-sm font-medium text-gray-700 mb-2">Class</label>
-                          <select 
-                            value={seatsClass}
-                            onChange={(e) => setSeatsClass(e.target.value)}
-                            className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          >
-                            {seatClasses.map((seatClass, index) => (
-                              <option key={index} value={seatClass}>{seatClass}</option>
-                            ))}
-                          </select>
-                        </div>
-                        
-                        <div className="space-y-4">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-700">Adults (12+ Years)</span>
-                            <div className="flex items-center space-x-3">
-                              <button
-                                onClick={() => setAdults(Math.max(1, adults - 1))}
-                                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
-                              >
-                                <span className="text-lg font-bold">−</span>
-                              </button>
-                              <span className="w-8 text-center font-medium">{adults}</span>
-                              <button
-                                onClick={() => setAdults(adults + 1)}
-                                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
-                              >
-                                <span className="text-lg font-bold">+</span>
-                              </button>
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-700">Children (2 - 11 Years)</span>
-                            <div className="flex items-center space-x-3">
-                              <button
-                                onClick={() => setChildren(Math.max(0, children - 1))}
-                                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
-                              >
-                                <span className="text-lg font-bold">−</span>
-                              </button>
-                              <span className="w-8 text-center font-medium">{children}</span>
-                              <button
-                                onClick={() => setChildren(children + 1)}
-                                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
-                              >
-                                <span className="text-lg font-bold">+</span>
-                              </button>
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-700">Infants (0 - 23 Month)</span>
-                            <div className="flex items-center space-x-3">
-                              <button
-                                onClick={() => setInfants(Math.max(0, infants - 1))}
-                                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
-                              >
-                                <span className="text-lg font-bold">−</span>
-                              </button>
-                              <span className="w-8 text-center font-medium">{infants}</span>
-                              <button
-                                onClick={() => setInfants(infants + 1)}
-                                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
-                              >
-                                <span className="text-lg font-bold">+</span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
+  <div className="absolute top-full left-0 right-0 z-[999999] mt-2">
+    <div className="bg-white text-black rounded-lg shadow-xl border w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto px-4">
+      <div className="p-4 space-y-4 max-h-[75vh] overflow-y-auto">
+        {/* Class Selector */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Class</label>
+          <select 
+            value={seatsClass}
+            onChange={(e) => setSeatsClass(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            {seatClasses.map((seatClass, index) => (
+              <option key={index} value={seatClass}>{seatClass}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Passenger Types */}
+        {[
+          { label: "Adults (12+ Years)", value: adults, setValue: setAdults, min: 1 },
+          { label: "Children (2 - 11 Years)", value: children, setValue: setChildren, min: 0 },
+          { label: "Infants (0 - 23 Month)", value: infants, setValue: setInfants, min: 0 }
+        ].map(({ label, value, setValue, min }, idx) => (
+          <div key={idx} className="flex items-center justify-between">
+            <span className="text-sm font-medium text-gray-700">{label}</span>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={() => setValue(Math.max(min, value - 1))}
+                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+              >
+                <span className="text-lg font-bold">−</span>
+              </button>
+              <span className="w-8 text-center font-medium">{value}</span>
+              <button
+                onClick={() => setValue(value + 1)}
+                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+              >
+                <span className="text-lg font-bold">+</span>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
+
               </div>
 
               {/* Travel Type */}
