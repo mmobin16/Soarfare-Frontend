@@ -206,14 +206,14 @@ const FlightSearchComponent = () => {
             </div>
 
             {/* Swap Button */}
-            {/* <div className="px-2">
+            <div className="px-2">
               <button
                 onClick={swapLocations}
                 className="w-10 h-10 bg-white hover:bg-gray-100 rounded-full flex items-center justify-center transition-colors"
               >
                 <ArrowLeftRight className="w-5 h-5 text-orange-500" />
               </button>
-            </div> */}
+            </div>
 
             {/* To Section */}
             <div className="relative flex-1">
@@ -493,14 +493,14 @@ const FlightSearchComponent = () => {
               </div>
 
               {/* Swap Button */}
-              {/* <div className="px-1">
+              <div className="px-1">
                 <button
                   onClick={swapLocations}
                   className="w-8 h-8 bg-white hover:bg-gray-100 rounded-full flex items-center justify-center transition-colors"
                 >
                   <ArrowLeftRight className="w-4 h-4 text-orange-500" />
                 </button>
-              </div> */}
+              </div>
 
               {/* To Section */}
               <div className="flex-1 relative">

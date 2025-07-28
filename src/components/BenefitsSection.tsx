@@ -131,13 +131,13 @@ const BenefitsSection = () => {
 
           {/* Image Card */}
           <div className="relative order-first lg:order-last">
-            <div
-              className="relative w-full h-[40vh] sm:h-[45vh] lg:w-[70vh] lg:h-[50vh] bg-cover bg-center bg-no-repeat flex flex-col rounded-2xl overflow-hidden mx-auto lg:mx-0"
-              style={{ backgroundImage: `url(${Container})` }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
-          </div>
+  <div
+    className="relative w-full h-[40vh] sm:h-[45vh] lg:w-[50vh] lg:h-[50vh] bg-cover bg-center bg-no-repeat flex flex-col rounded-2xl overflow-hidden mx-auto lg:mx-0"
+    style={{ backgroundImage: `url(${Container})` }}
+  >
+    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+  </div>
+</div>
         </div>
       </section>
     </div>

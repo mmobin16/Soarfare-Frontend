@@ -85,7 +85,7 @@ export default function ExploreMoreSection() {
   spaceBetween={20}
   centeredSlides={true}
   initialSlide={0}
-  slidesPerView={3}
+  slidesPerView={1}
   loop={true}
   autoplay={{ delay: 2000, disableOnInteraction: false }}
   breakpoints={{
