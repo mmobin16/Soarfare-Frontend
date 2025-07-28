@@ -18,7 +18,7 @@ const HeroSection = () => {
       subtitle: "Take control of your travel goals with flexible monthly savings."
     },
     {
-      title: <>Go <span className="text-orange-500">Anywhere</span></>,
+      title: <>Go<br/> <span className="text-orange-500">Anywhere</span></>,
       subtitle: "From Bali to Boston, your next adventure is a subscription away"
     },
     {
@@ -37,7 +37,8 @@ const HeroSection = () => {
 
   return (
     <div 
-      className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col transition-all duration-1000 ease-in-out"
+      className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col transition-opacity duration-500 ease"
+
       style={{ backgroundImage: `url(${backgrounds[currentSlide]})` }}
     >
       {/* Dark overlay */}

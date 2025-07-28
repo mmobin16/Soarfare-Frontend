@@ -74,12 +74,15 @@ const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-[#081C3A]/95 backdrop-blur-sm z-50">
+        <div className="lg:hidden fixed inset-0 bg-[#081C3A]/95 backdrop-blur-sm z-[9999]">
+
+
           <div className="flex flex-col h-full">
             {/* Header */}
             <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-white/10">
               <img src="/4e8c6399e9117e16c30d8a0a2b25aa785d965b63.png" alt="SoarFare Logo" className="h-12 w-auto object-contain" />
-              <Button variant="ghost" size="sm" onClick={toggleMobileMenu} className="text-white hover:bg-white/10 p-2">
+              <Button variant="ghost" size="sm" onClick={toggleMobileMenu} className="text-white hover:bg-white/10 p-2 z-50">
+
                 <X className="h-6 w-6" />
               </Button>
             </div>

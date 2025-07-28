@@ -65,7 +65,7 @@ const PricingSection = () => {
           </h2>
           
           {/* Toggle */}
-          <div className="inline-flex items-center bg-muted rounded-full p-1">
+          {/* <div className="inline-flex items-center bg-muted rounded-full p-1">
             <button
               onClick={() => setIsYearly(false)}
               className={`px-4 sm:px-6 py-2 rounded-full text-sm font-medium transition-colors ${
@@ -86,7 +86,7 @@ const PricingSection = () => {
             >
               Yearly
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Pricing Cards */}

@@ -1,6 +1,6 @@
 export default function TestimonialCard() {
   return (
-    <section className="bg-[#081C3A] w-full py-12 px-6 flex justify-center items-center min-h-screen font-poppins">
+    <section className="bg-[#081C3A] w-full py-6 px-6 flex justify-center items-center font-poppins">
       <div className="bg-[#081C3A] max-w-6xl w-full flex flex-col md:flex-row rounded-3xl overflow-hidden text-white">
         
         {/* Left Image Section */}
@@ -8,7 +8,7 @@ export default function TestimonialCard() {
           <img
             src="/image 26.png"
             alt="Happy Customers"
-            className="w-full h-full object-cover rounded-none md:rounded-l-3xl"
+            className="w-full h-full object-cover rounded-3xl"
           />
         </div>
 
@@ -39,7 +39,7 @@ export default function TestimonialCard() {
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-full bg-white overflow-hidden flex items-center justify-center">
                 <img
-                  src="/59094183-4de0-4a2a-8122-d203994ab7c7.png"
+                  src="/b41575ff56c8452554d68a062a81763997ce4424.png"
                   alt="User Avatar"
                   className="w-full h-full object-cover"
                 />
@@ -60,8 +60,7 @@ export default function TestimonialCard() {
 
           {/* Navigation Dots */}
           <div className="mt-6 flex space-x-2">
-            <div className="w-2 h-2 rounded-full bg-white opacity-80" />
-            <div className="w-2 h-2 rounded-full bg-white opacity-30" />
+            
           </div>
         </div>
       </div>

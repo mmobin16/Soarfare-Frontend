@@ -44,7 +44,7 @@ const PricingCards = () => {
         "Everything in the Standard Plan",
         "Maximize your monthly flight savings",
         "Reach your travel goals even quicker",
-        "Ideal for international trips or multiple flights per year"
+        " Ideal for international trips or multiple flights per year"
       ]
     }
   ];
@@ -55,7 +55,11 @@ const PricingCards = () => {
   {plans.map((plan) => (
     <div
       key={plan.name}
-      className="relative rounded-2xl p-6 bg-white border border-gray-200 shadow-sm group transition-all duration-300 hover:bg-orange-500"
+      className={`relative rounded-2xl p-6 border shadow-sm group transition-all duration-300 ${
+        plan.name === "Standard" 
+          ? "bg-orange-500 border-orange-500 hover:bg-orange-500" 
+          : "bg-white border-gray-200 hover:bg-orange-500"
+      }`}
     >
       {/* Top-right Icon */}
       <div className="absolute top-6 right-6">
@@ -133,33 +137,67 @@ const PricingCards = () => {
 
       {/* Plan name and description */}
       <div className="mb-8">
-        <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-white">{plan.name}</h3>
-        <p className="text-sm leading-relaxed text-gray-600 group-hover:text-white">{plan.description}</p>
+        <h3 className={`text-xl font-semibold mb-2 ${
+          plan.name === "Standard" 
+            ? "text-white" 
+            : "text-gray-900 group-hover:text-white"
+        }`}>{plan.name}</h3>
+        <p className={`text-sm leading-relaxed ${
+          plan.name === "Standard" 
+            ? "text-white" 
+            : "text-gray-600 group-hover:text-white"
+        }`}>{plan.description}</p>
       </div>
 
       {/* Price */}
       <div className="mb-8">
         <div className="flex items-baseline">
-          <span className="text-4xl font-bold text-gray-900 group-hover:text-white">{plan.price}</span>
-          <span className="text-sm ml-1 text-gray-500 group-hover:text-white">{plan.period}</span>
+          <span className={`text-4xl font-bold ${
+            plan.name === "Standard" 
+              ? "text-white" 
+              : "text-gray-900 group-hover:text-white"
+          }`}>{plan.price}</span>
+          <span className={`text-sm ml-1 ${
+            plan.name === "Standard" 
+              ? "text-white" 
+              : "text-gray-500 group-hover:text-white"
+          }`}>{plan.period}</span>
         </div>
       </div>
 
       {/* Join button */}
-      <div className="mb-8 flex justify-center group">
-        <button className="w-56 py-2 px-8 rounded-xl font-medium text-sm transition-all duration-300 bg-white text-black border border-gray-300 group-hover:text-orange-500 group-hover:border-transparent">
-          {plan.buttonText}
-        </button>
+      <div className="mb-8 flex justify-center">
+        {plan.name === "Standard" ? (
+          <button className="w-56 py-2 px-8 rounded-xl font-medium text-sm transition-all duration-300 bg-white text-orange-500 border border-transparent group-hover:text-orange-500 group-hover:border-transparent">
+            {plan.buttonText}
+          </button>
+        ) : (
+          <button className="w-56 py-2 px-8 rounded-xl font-medium text-sm transition-all duration-300 bg-orange-500 text-white border border-orange-500 group-hover:bg-white group-hover:text-orange-500 group-hover:border-orange-500">
+            {plan.buttonText}
+          </button>
+        )}
       </div>
 
       {/* Features */}
       <div className="space-y-4">
         {plan.features.map((feature, featureIndex) => (
           <div key={featureIndex} className="flex items-start gap-3">
-            <div className="w-8 h-8 border-2 border-black group-hover:border-white rounded-full flex items-center justify-center group">
-              <Check className="w-5 h-5 text-black group-hover:text-white" />
+            <div className={`w-8 h-8 border-2 rounded-full flex items-center justify-center ${
+              plan.name === "Standard"
+                ? "border-white"
+                : "border-black group-hover:border-white"
+            }`}>
+              <Check className={`w-5 h-5 ${
+                plan.name === "Standard"
+                  ? "text-white"
+                  : "text-black group-hover:text-white"
+              }`} />
             </div>
-            <span className="text-sm leading-relaxed text-gray-600 group-hover:text-white">
+            <span className={`text-sm leading-relaxed ${
+              plan.name === "Standard"
+                ? "text-white"
+                : "text-gray-600 group-hover:text-white"
+            }`}>
               {feature}
             </span>
           </div>
