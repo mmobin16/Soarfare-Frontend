@@ -592,7 +592,7 @@ const SearchFlights = () => {
 
             {/* Search Button */}
             <div className="flex items-end">
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white w-full h-[48px]">
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white w-full h-[40px]">
                 <Search className="w-4 h-4 mr-2" /> Search Flights
               </Button>
             </div>

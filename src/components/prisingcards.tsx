@@ -152,7 +152,7 @@ const PricingCards = () => {
       {/* Price */}
       <div className="mb-8">
         <div className="flex items-baseline">
-          <span className={`text-4xl font-bold ${
+          <span className={`text-4xl font-semibold ${
             plan.name === "Standard" 
               ? "text-white" 
               : "text-gray-900 group-hover:text-white"

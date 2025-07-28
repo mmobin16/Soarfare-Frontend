@@ -8,6 +8,7 @@ import BlogSection from "@/components/blogsection";
 import FAQSection from "@/components/faqsection";
 import TestimonialSection from "@/components/testimonialsection";
 import Footer from "@/components/footer";
+import VideoSection from "@/components/videosection";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <StatsSection />
       <BenefitsSection />
       <PricingSection />
+      <VideoSection/>
       <ExploreMoreSection />
       <BlogSection />
       <FAQSection />

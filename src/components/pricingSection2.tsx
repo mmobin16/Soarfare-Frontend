@@ -66,28 +66,7 @@ const PricingSection2 = () => {
           
           
           {/* Toggle */}
-          <div className="inline-flex items-center bg-muted rounded-full p-1">
-            <button
-              onClick={() => setIsYearly(false)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                !isYearly 
-                  ? "bg-orange-500 text-white" 
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setIsYearly(true)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                isYearly 
-                  ? "bg-orange-500 text-white" 
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Yearly
-            </button>
-          </div>
+          
         </div>
 
         {/* Pricing Cards */}

@@ -75,7 +75,7 @@ export default function FAQSection() {
                     isOpen ? "max-h-40 mt-3" : "max-h-0"
                   }`}
                 >
-                  <p className="text-[16px] text-muted-foreground font-barlow leading-relaxed pr-6">
+                  <p className="text-[16px] text-[#0C2545] font-poppins leading-relaxed pr-6">
                     {item.answer}
                   </p>
                 </div>

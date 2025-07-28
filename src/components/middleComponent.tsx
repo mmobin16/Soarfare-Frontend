@@ -18,7 +18,6 @@ const MiddleComponent = () => {
               "Pick your monthly budget by selecting a subscription plan.",
               "Watch your points grow each month.",
               "When you are ready to book a flight, log in to your account and search for your preferred flight.",
-              "When you are ready to book a flight, log in to your account and search for your preferred flight.",
               "Use the points you have saved to book!",
               "If you haven't saved up quite enough points when you're ready to book, you can add what you need right then through instant points!",
               "You can raise, lower, or freeze your plan at any time.",
@@ -40,7 +39,7 @@ const MiddleComponent = () => {
         </div>
 
         {/* Right Image */}
-        <div className="w-[330px] h-[350px] rounded-2xl overflow-hidden">
+        <div className="w-[360px] h-[450px] rounded-2xl overflow-hidden">
           <img
             src="/Screenshot 2025-07-27 011047.png"
             alt="Flight booking visual"

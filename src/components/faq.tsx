@@ -144,7 +144,7 @@ const SoarFareFAQ = () => {
               onClick={() => toggleItem(index)}
               className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
             >
-              <span className="text-[#081C3A] font-medium text-base sm:text-lg pr-4 leading-snug">
+              <span className="text-[#081C3A] font-poppins font-medium text-base sm:text-lg pr-4 leading-snug">
                 {item.question}
               </span>
               <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">
@@ -158,7 +158,7 @@ const SoarFareFAQ = () => {
                 expandedItem === index ? 'max-h-screen opacity-100 py-3' : 'max-h-0 opacity-0 py-0'
               }`}
             >
-              <p className="text-gray-700 text-base leading-relaxed">
+              <p className="text-[#0C2545] font-poppins text-base leading-relaxed">
                 {item.answer}
               </p>
             </div>

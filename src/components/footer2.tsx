@@ -70,7 +70,8 @@ const Footer2 = () => {
                 <img 
                   src="/footer logo.png" 
                   alt="Footer Logo" 
-                  className="h-24 w-auto sm:h-32 md:h-36 lg:h-40 xl:h-44 object-contain mx-auto sm:mx-0 mb-3 sm:mb-4"
+                  className="h-24 w-auto sm:h-32 md:h-36 lg:h-40 xl:h-44 object-contain mx-auto sm:mx-0 mb-3 sm:-mb-12 sm:right-3 sm:-ml-6"
+
                 />
                 <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xs sm:max-w-sm lg:max-w-md xl:max-w-lg mx-auto sm:mx-0">
                   We create flexible travel solutions that help people plan ahead, save better, and connect meaningfully with the world.
@@ -80,29 +81,42 @@ const Footer2 = () => {
               {/* Social Icons */}
               <div className="flex gap-3 sm:gap-4 justify-center sm:justify-start">
                 {/* Facebook */}
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-md">
-                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#F27709"/>
-                  </svg>
-                </div>
+                <div
+  className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-md"
+  onClick={() => window.open("https://www.facebook.com/SoarFareOfficial")}
+>
+  <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.00390625" width="45.9263" height="45.9263" rx="22.9631" fill="white"/>
+<rect x="0.641771" y="0.637865" width="44.6505" height="44.6505" rx="22.3253" stroke="#111827" stroke-opacity="0.12" stroke-width="1.27573"/>
+<path d="M24.5521 24.9558H26.8112L27.7148 21.3412H24.5521V19.5339C24.5521 19.1243 24.5701 18.8291 24.6063 18.6483C24.6786 18.3592 24.8352 18.1363 25.0762 17.9796C25.3653 17.811 25.7931 17.7266 26.3593 17.7266H27.7148V14.6904C27.51 14.6663 27.1847 14.6422 26.7389 14.6181C26.1846 14.582 25.6485 14.5639 25.1304 14.5639C24.299 14.5639 23.5671 14.7295 22.9345 15.0609C22.302 15.3922 21.817 15.8651 21.4797 16.4796C21.1182 17.1423 20.9375 17.9194 20.9375 18.811V21.3412H18.2266V24.9558H20.9375V32.6367H24.5521V24.9558Z" fill="#F27709"/>
+</svg>
+
+</div>
+
 
                 {/* X (Twitter) */}
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-md">
-                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <div
+  className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-md"
+  onClick={() => window.open("https://www.facebook.com/SoarFareOfficial")}
+>                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#F27709"/>
                   </svg>
                 </div>
 
                 {/* Instagram */}
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-md">
-                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <div
+  className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-md"
+  onClick={() => window.open("https://www.instagram.com/SoarFare/")}
+>                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#F27709"/>
                   </svg>
                 </div>
 
                 {/* TikTok */}
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-md">
-                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <div
+  className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-md"
+  onClick={() => window.open("https://www.tiktok.com/@soarfare?_t=ZS-8yP0RdBDm4d&_r=1")}
+>                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" fill="#F27709"/>
                   </svg>
                 </div>
@@ -110,13 +124,13 @@ const Footer2 = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="text-center sm:text-left">
+             <div className="text-center sm:text-left">
               <h4 className="font-semibold text-base sm:text-lg lg:text-xl mb-3 sm:mb-4 lg:mb-6 text-primary-foreground">Quick Links</h4>
               <ul className="space-y-2 sm:space-y-3">
-                <li><a href="#" className="text-muted-foreground hover:text-primary-foreground transition-colors text-sm sm:text-base lg:text-lg hover:underline">Home</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary-foreground transition-colors text-sm sm:text-base lg:text-lg hover:underline">About Us</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary-foreground transition-colors text-sm sm:text-base lg:text-lg hover:underline">Subscriptions</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary-foreground transition-colors text-sm sm:text-base lg:text-lg hover:underline">FAQs</a></li>
+                <li><a href="/" className="text-muted-foreground hover:text-primary-foreground transition-colors text-sm sm:text-base lg:text-lg hover:underline">Home</a></li>
+                <li><a href="/about" className="text-muted-foreground hover:text-primary-foreground transition-colors text-sm sm:text-base lg:text-lg hover:underline">About Us</a></li>
+                <li><a href="/subscription" className="text-muted-foreground hover:text-primary-foreground transition-colors text-sm sm:text-base lg:text-lg hover:underline">Subscriptions</a></li>
+                <li><a href="/faq" className="text-muted-foreground hover:text-primary-foreground transition-colors text-sm sm:text-base lg:text-lg hover:underline">FAQs</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-primary-foreground transition-colors text-sm sm:text-base lg:text-lg hover:underline">Privacy Policy</a></li>
               </ul>
             </div>

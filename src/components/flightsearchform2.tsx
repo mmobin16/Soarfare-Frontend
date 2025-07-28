@@ -163,7 +163,7 @@ const FlightSearchComponent = () => {
             
             {/* From Section */}
             <div className="relative flex-1">
-              <div className="p-4 border-r border-gray-600">
+              <div className="p-4 ">
                 <div className="text-sm text-gray-300 mb-1">From</div>
                 <button
                   onClick={() => {
@@ -217,7 +217,7 @@ const FlightSearchComponent = () => {
 
             {/* To Section */}
             <div className="relative flex-1">
-              <div className="p-4 border-r border-gray-600">
+              <div className="p-4 ">
                 <div className="text-sm text-gray-300 mb-1">To</div>
                 <button
                   onClick={() => {
@@ -448,7 +448,7 @@ const FlightSearchComponent = () => {
             <div className="flex items-center relative">
               {/* From Section */}
               <div className="flex-1 relative">
-                <div className="p-3 border-r border-gray-600">
+                <div className="p-3 ">
                   <div className="text-xs text-gray-300 mb-1">From</div>
                   <button
                     onClick={() => {
@@ -551,7 +551,7 @@ const FlightSearchComponent = () => {
             </div>
 
             {/* Divider */}
-            <div className="border-t border-gray-600"></div>
+            {/* <div className="border-t border-gray-600"></div> */}
 
             {/* Row 2: Travel Date, Return Date */}
             <div className="flex relative">
@@ -598,7 +598,7 @@ const FlightSearchComponent = () => {
             </div>
 
             {/* Divider */}
-            <div className="border-t border-gray-600"></div>
+            {/* <div className="border-t border-gray-600"></div> */}
 
             {/* Row 3: Seats & Classes, Travel Type, Search */}
             <div className="flex items-center relative">
