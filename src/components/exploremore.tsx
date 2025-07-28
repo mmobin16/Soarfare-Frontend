@@ -69,7 +69,7 @@ export default function ExploreMoreSection() {
   ];
 
   return (
-    <section className="w-full px-4 py-12 bg-white max-w-none">
+    <section className="w-full py-12 bg-white max-w-none">
 
       {/* Header */}
       <div className="text-center mb-8">
@@ -80,7 +80,7 @@ export default function ExploreMoreSection() {
       </div>
 
       {/* Slider */}
-     <div className="max-w-6xl mx-auto mb-10 pb-16">
+     <div className="w-full mx-auto mb-10 pb-16">
   <Swiper
   spaceBetween={20}
   centeredSlides={true}
@@ -207,13 +207,13 @@ export default function ExploreMoreSection() {
 </div>
 
 
-     <div className="relative w-full max-w-6xl mx-auto rounded-2xl overflow-hidden">
+     <div className="relative w-3/4 mx-auto rounded-2xl overflow-hidden">
   <img
     src="/Group 1000003876.png"
     alt="Plan Ahead Banner"
     width={1600}
     height={700}
-    className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+    className="w-full h-[270px] sm:h-[370px] md:h-[470px] lg:h-[570px] object-cover"
   />
   <div className="absolute inset-0 bg-black/30" />
   <div className="absolute inset-0 flex flex-col justify-center items-start px-4 sm:px-8 md:px-16 space-y-3">

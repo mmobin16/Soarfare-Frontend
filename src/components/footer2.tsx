@@ -14,25 +14,27 @@ const Footer2 = () => {
       <div className="relative z-10">
         <div className="border-b border-muted/20">
         <div className="container mx-auto px-4 py-6 sm:py-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 sm:gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6 lg:gap-8">
             <div>
               {/* <p className="text-orange-500 font-semibold text-sm mb-2 tracking-wide">NEWSLETTER</p> */}
               <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold font-poppins text-primary-foreground">
                 Still need to ask something?
               </h2>
             </div>
-           <div className="flex flex-col gap-3 min-w-fit">
-  <p className="text-[#FFFFFF] font-normal font-barlow text-sm tracking-wide text-left md:text-right">
+           <div className="flex flex-col gap-3 min-w-fit transform -translate-x-4 md:-translate-x-5">
+  <p className="text-[#FFFFFF] font-normal font-barlow text-sm tracking-wide text-center md:text-right">
   Ask away – we're ready to help you<br className="hidden sm:block" /> book your journey.
 </p>
 
-  <div className="flex justify-start md:justify-end">
-    
-    <Button className="bg-orange-500 hover:bg-orange-600 text-white px-4 sm:px-6 whitespace-nowrap text-sm sm:text-base">
-      Contact Us
-    </Button>
-  </div>
+
+  <div className="flex justify-center md:justify-end">
+  <Button className="bg-orange-500 hover:bg-orange-600 text-white px-4 sm:px-6 whitespace-nowrap text-sm sm:text-base">
+    Contact Us
+  </Button>
 </div>
+
+</div>
+
 
           </div>
         </div>
@@ -64,8 +66,8 @@ const Footer2 = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 xl:py-16 backdrop-brightness-95">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
             
-            {/* Brand Section */}
-            <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1 text-center sm:text-left mb-6 sm:mb-0">
+           {/* Brand Section */}
+            <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1 text-center sm:text-left mb-6 sm:mb-0 -mt-16">
               <div className="mb-4 sm:mb-6">
                 <img 
                   src="/footer logo.png" 

@@ -345,95 +345,102 @@ const FlightCard = () => (
         {/* Search Form */}
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8 max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-7 gap-4 items-end">
-            {/* From */}
-            <div className="min-w-[160px] relative">
-              <label className="text-sm font-medium text-gray-700 mb-2 block">From</label>
-              <button 
-                onClick={() => {
-                  closeAllDropdowns();
-                  setShowFromDropdown(true);
-                }}
-                className="rounded-lg bg-[#F8F8F8] p-3 w-full text-left"
-              >
-                <div className="font-semibold font-barlow text-[#0C2545]">{fromLocation}</div>
-                <div className="text-sm font-barlow text-[#212529]">
-                  {fromLocation.includes('New York') ? 'John F. Kennedy International..' : 'Paris Orly Airport'}
-                </div>
-              </button>
-              
-              {/* From Dropdown */}
-              {showFromDropdown && (
-                <div className="absolute top-full left-0 z-[999999] mt-2 w-96 bg-white text-black rounded-lg shadow-xl border">
-                  {locations.filter(loc => loc.name.includes('New York') || loc.name.includes('France')).map((location, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setFromLocation(location.name.split(' (')[0]);
-                        setShowFromDropdown(false);
-                      }}
-                      className="w-full p-4 text-left hover:bg-gray-100 transition-colors flex items-center space-x-3 border-b border-gray-200 last:border-b-0"
-                    >
-                      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                        {location.code ? (
-                          <Plane className="w-4 h-4 text-gray-600" />
-                        ) : (
-                          <MapPin className="w-4 h-4 text-gray-600" />
-                        )}
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900">{location.name}</div>
-                        <div className="text-sm text-gray-500">{location.country}</div>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
 
-            {/* To */}
-            <div className="min-w-[160px] relative">
-              <label className="text-sm font-medium text-gray-700 mb-2 block">To</label>
-              <button 
-                onClick={() => {
-                  closeAllDropdowns();
-                  setShowToDropdown(true);
-                }}
-                className="rounded-lg bg-[#F8F8F8] p-3 w-full text-left"
-              >
-                <div className="font-semibold font-barlow text-[#0C2545]">{toLocation}</div>
-                <div className="text-sm font-barlow text-[#212529]">
-                  {toLocation.includes('France') ? 'Paris Orly Airport' : 'John F. Kennedy International..'}
-                </div>
-              </button>
-              
-              {/* To Dropdown */}
-              {showToDropdown && (
-                <div className="absolute top-full left-0 z-[999999] mt-2 w-96 bg-white text-black rounded-lg shadow-xl border">
-                  {locations.filter(loc => loc.name.includes('New York') || loc.name.includes('France')).map((location, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setToLocation(location.name.split(' (')[0]);
-                        setShowToDropdown(false);
-                      }}
-                      className="w-full p-4 text-left hover:bg-gray-100 transition-colors flex items-center space-x-3 border-b border-gray-200 last:border-b-0"
-                    >
-                      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                        {location.code ? (
-                          <Plane className="w-4 h-4 text-gray-600" />
-                        ) : (
-                          <MapPin className="w-4 h-4 text-gray-600" />
-                        )}
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900">{location.name}</div>
-                        <div className="text-sm text-gray-500">{location.country}</div>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+  {/* From */}
+  <div className="flex-1 min-w-[160px] relative">
+    <label className="text-sm font-medium text-gray-700 mb-2 block">From</label>
+    <button 
+      onClick={() => {
+        closeAllDropdowns();
+        setShowFromDropdown(true);
+      }}
+      className="rounded-lg bg-[#F8F8F8] p-3 w-full text-left"
+    >
+      <div className="font-semibold font-barlow text-[#0C2545]">{fromLocation}</div>
+      <div className="text-sm font-barlow text-[#212529]">
+        {fromLocation.includes('New York') ? 'John F. Kennedy International..' : 'Paris Orly Airport'}
+      </div>
+    </button>
+
+    {/* From Dropdown */}
+    {showFromDropdown && (
+      <div className="absolute top-full left-0 z-[999999] mt-2 w-full max-w-xs sm:max-w-md bg-white text-black rounded-lg shadow-xl border">
+        {locations
+          .filter(loc => loc.name.includes('New York') || loc.name.includes('France'))
+          .map((location, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setFromLocation(location.name.split(' (')[0]);
+                setShowFromDropdown(false);
+              }}
+              className="w-full p-4 text-left hover:bg-gray-100 transition-colors flex items-center space-x-3 border-b border-gray-200 last:border-b-0"
+            >
+              <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                {location.code ? (
+                  <Plane className="w-4 h-4 text-gray-600" />
+                ) : (
+                  <MapPin className="w-4 h-4 text-gray-600" />
+                )}
+              </div>
+              <div>
+                <div className="font-medium text-gray-900">{location.name}</div>
+                <div className="text-sm text-gray-500">{location.country}</div>
+              </div>
+            </button>
+        ))}
+      </div>
+    )}
+  </div>
+
+  {/* To */}
+  <div className="flex-1 min-w-[160px] relative">
+    <label className="text-sm font-medium text-gray-700 mb-2 block">To</label>
+    <button 
+      onClick={() => {
+        closeAllDropdowns();
+        setShowToDropdown(true);
+      }}
+      className="rounded-lg bg-[#F8F8F8] p-3 w-full text-left"
+    >
+      <div className="font-semibold font-barlow text-[#0C2545]">{toLocation}</div>
+      <div className="text-sm font-barlow text-[#212529]">
+        {toLocation.includes('France') ? 'Paris Orly Airport' : 'John F. Kennedy International..'}
+      </div>
+    </button>
+
+    {/* To Dropdown */}
+    {showToDropdown && (
+      <div className="absolute top-full left-0 z-[999999] mt-2 w-full max-w-xs sm:max-w-md bg-white text-black rounded-lg shadow-xl border">
+        {locations
+          .filter(loc => loc.name.includes('New York') || loc.name.includes('France'))
+          .map((location, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setToLocation(location.name.split(' (')[0]);
+                setShowToDropdown(false);
+              }}
+              className="w-full p-4 text-left hover:bg-gray-100 transition-colors flex items-center space-x-3 border-b border-gray-200 last:border-b-0"
+            >
+              <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
+                {location.code ? (
+                  <Plane className="w-4 h-4 text-gray-600" />
+                ) : (
+                  <MapPin className="w-4 h-4 text-gray-600" />
+                )}
+              </div>
+              <div>
+                <div className="font-medium text-gray-900">{location.name}</div>
+                <div className="text-sm text-gray-500">{location.country}</div>
+              </div>
+            </button>
+        ))}
+      </div>
+    )}
+  </div>
+
+
 
             {/* Travel Date */}
             <div className="min-w-[160px] relative">

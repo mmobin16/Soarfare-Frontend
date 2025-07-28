@@ -102,7 +102,7 @@ const FlightSearchComponent = () => {
     }
 
     return (
-      <div className="bg-white text-black rounded-lg shadow-xl border p-4 w-80">
+      <div className="bg-white text-black rounded-lg shadow-xl border p-3 sm:p-4 w-[320px] sm:w-96 max-w-[calc(100vw-1rem)]">
         {/* Calendar Header */}
         <div className="flex justify-between items-center mb-4">
           <button
@@ -118,7 +118,7 @@ const FlightSearchComponent = () => {
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
-          <div className="font-semibold">
+          <div className="font-semibold text-sm sm:text-base">
             {monthNames[currentMonth]} {currentYear}
           </div>
           <button
@@ -139,7 +139,7 @@ const FlightSearchComponent = () => {
         {/* Day Names */}
         <div className="grid grid-cols-7 gap-1 mb-2">
           {dayNames.map(day => (
-            <div key={day} className="p-2 text-center text-xs font-medium text-gray-500">
+            <div key={day} className="p-1 sm:p-2 text-center text-xs font-medium text-gray-500">
               {day}
             </div>
           ))}
@@ -178,7 +178,7 @@ const FlightSearchComponent = () => {
               
               {/* From Dropdown - Desktop */}
               {showFromDropdown && (
-                <div className="absolute top-full left-0 z-[999999] mt-2 w-96 bg-white text-black rounded-lg shadow-xl border">
+                <div className="absolute top-full left-0 z-[999999] mt-2 w-80 xl:w-96 bg-white text-black rounded-lg shadow-xl border">
                   {locations.map((location, index) => (
                     <button
                       key={index}
@@ -233,7 +233,7 @@ const FlightSearchComponent = () => {
 
               {/* To Dropdown - Desktop */}
               {showToDropdown && (
-                <div className="absolute top-full left-0 z-[999999] mt-2 w-96 bg-white text-black rounded-lg shadow-xl border">
+                <div className="absolute top-full left-0 z-[999999] mt-2 w-80 xl:w-96 bg-white text-black rounded-lg shadow-xl border">
                   {locations.map((location, index) => (
                     <button
                       key={index}
@@ -463,8 +463,8 @@ const FlightSearchComponent = () => {
 
                 {/* From Dropdown - Mobile */}
                 {showFromDropdown && (
-                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 mx-3">
-                    <div className="bg-white text-black rounded-lg shadow-xl border">
+                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 mx-2 sm:mx-3">
+                    <div className="bg-white text-black rounded-lg shadow-xl border max-w-sm mx-auto">
                       {locations.map((location, index) => (
                         <button
                           key={index}
@@ -481,9 +481,9 @@ const FlightSearchComponent = () => {
                               <MapPin className="w-3 h-3 text-gray-600" />
                             )}
                           </div>
-                          <div>
-                            <div className="font-medium text-gray-900 text-sm">{location.name}</div>
-                            <div className="text-xs text-gray-500">{location.country}</div>
+                          <div className="min-w-0">
+                            <div className="font-medium text-gray-900 text-sm truncate">{location.name}</div>
+                            <div className="text-xs text-gray-500 truncate">{location.country}</div>
                           </div>
                         </button>
                       ))}
@@ -520,8 +520,8 @@ const FlightSearchComponent = () => {
 
                 {/* To Dropdown - Mobile */}
                 {showToDropdown && (
-                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 mx-3">
-                    <div className="bg-white text-black rounded-lg shadow-xl border">
+                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 mx-2 sm:mx-3">
+                    <div className="bg-white text-black rounded-lg shadow-xl border max-w-sm mx-auto">
                       {locations.map((location, index) => (
                         <button
                           key={index}
@@ -538,9 +538,9 @@ const FlightSearchComponent = () => {
                               <MapPin className="w-3 h-3 text-gray-600" />
                             )}
                           </div>
-                          <div>
-                            <div className="font-medium text-gray-900 text-sm">{location.name}</div>
-                            <div className="text-xs text-gray-500">{location.country}</div>
+                          <div className="min-w-0">
+                            <div className="font-medium text-gray-900 text-sm truncate">{location.name}</div>
+                            <div className="text-xs text-gray-500 truncate">{location.country}</div>
                           </div>
                         </button>
                       ))}
@@ -549,9 +549,6 @@ const FlightSearchComponent = () => {
                 )}
               </div>
             </div>
-
-            {/* Divider */}
-            {/* <div className="border-t border-gray-600"></div> */}
 
             {/* Row 2: Travel Date, Return Date */}
             <div className="flex relative">
@@ -570,8 +567,10 @@ const FlightSearchComponent = () => {
 
                 {/* Travel Date Calendar - Mobile */}
                 {showTravelDateCalendar && (
-                  <div className="absolute top-full left-0 z-[999999] mt-2">
-                    {renderCalendar(false)}
+                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 px-1">
+                    <div className="flex justify-center">
+                      {renderCalendar(false)}
+                    </div>
                   </div>
                 )}
               </div>
@@ -590,15 +589,14 @@ const FlightSearchComponent = () => {
 
                 {/* Return Date Calendar - Mobile */}
                 {showReturnDateCalendar && (
-                  <div className="absolute top-full left-0 z-[999999] mt-2">
-                    {renderCalendar(true)}
+                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 px-1">
+                    <div className="flex justify-center">
+                      {renderCalendar(true)}
+                    </div>
                   </div>
                 )}
               </div>
             </div>
-
-            {/* Divider */}
-            {/* <div className="border-t border-gray-600"></div> */}
 
             {/* Row 3: Seats & Classes, Travel Type, Search */}
             <div className="flex items-center relative">
@@ -618,9 +616,9 @@ const FlightSearchComponent = () => {
 
                 {/* Seats Dropdown - Mobile */}
                 {showSeatsDropdown && (
-  <div className="absolute top-full left-0 right-0 z-[999999] mt-2">
-    <div className="bg-white text-black rounded-lg shadow-xl border w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto px-4">
-      <div className="p-4 space-y-4 max-h-[75vh] overflow-y-auto">
+  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 px-2 sm:px-4">
+    <div className="bg-white text-black rounded-lg shadow-2xl border w-full max-w-3xl mx-auto">
+      <div className="p-4 space-y-6 max-h-[70vh] overflow-y-auto">
         {/* Class Selector */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Class</label>
@@ -636,30 +634,42 @@ const FlightSearchComponent = () => {
         </div>
 
         {/* Passenger Types */}
-        {[
-          { label: "Adults (12+ Years)", value: adults, setValue: setAdults, min: 1 },
-          { label: "Children (2 - 11 Years)", value: children, setValue: setChildren, min: 0 },
-          { label: "Infants (0 - 23 Month)", value: infants, setValue: setInfants, min: 0 }
-        ].map(({ label, value, setValue, min }, idx) => (
-          <div key={idx} className="flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-700">{label}</span>
-            <div className="flex items-center space-x-3">
-              <button
-                onClick={() => setValue(Math.max(min, value - 1))}
-                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
-              >
-                <span className="text-lg font-bold">−</span>
-              </button>
-              <span className="w-8 text-center font-medium">{value}</span>
-              <button
-                onClick={() => setValue(value + 1)}
-                className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
-              >
-                <span className="text-lg font-bold">+</span>
-              </button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            { label: "Adults (12+ Years)", value: adults, setValue: setAdults, min: 1 },
+            { label: "Children (2 - 11 Years)", value: children, setValue: setChildren, min: 0 },
+            { label: "Infants (0 - 23 Months)", value: infants, setValue: setInfants, min: 0 }
+          ].map(({ label, value, setValue, min }, idx) => (
+            <div key={idx} className="flex flex-col gap-2">
+              <span className="text-sm font-medium text-gray-700">{label}</span>
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={() => setValue(Math.max(min, value - 1))}
+                  className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+                >
+                  <span className="text-lg font-bold">−</span>
+                </button>
+                <span className="text-center font-medium text-base min-w-[24px]">{value}</span>
+                <button
+                  onClick={() => setValue(value + 1)}
+                  className="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+                >
+                  <span className="text-lg font-bold">+</span>
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Done Button */}
+        <div className="pt-4 border-t border-gray-200">
+          <button
+            onClick={() => setShowSeatsDropdown(false)}
+            className="w-full bg-blue-900 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition-colors text-sm font-medium"
+          >
+            Done
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -683,9 +693,9 @@ const FlightSearchComponent = () => {
 
                 {/* Travel Type Dropdown - Mobile */}
                 {showTravelTypeDropdown && (
-                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 mx-3">
-                    <div className="bg-white text-black rounded-lg shadow-xl border">
-                      <div className="p-4 space-y-3">
+                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 mx-2 sm:mx-3">
+                    <div className="bg-white text-black rounded-lg shadow-xl border max-w-xs mx-auto">
+                      <div className="p-3 sm:p-4 space-y-3">
                         {travelTypes.map((type, index) => (
                           <label key={index} className="flex items-center cursor-pointer">
                             <input
@@ -693,7 +703,10 @@ const FlightSearchComponent = () => {
                               name="travelTypeMobile"
                               value={type.label}
                               checked={travelType === type.label}
-                              onChange={() => setTravelType(type.label)}
+                              onChange={() => {
+                                setTravelType(type.label);
+                                setShowTravelTypeDropdown(false);
+                              }}
                               className="w-4 h-4 text-blue-600 border-2 border-gray-300 focus:ring-blue-500"
                             />
                             <span className="ml-3 text-sm font-medium text-gray-700">{type.label}</span>
@@ -707,8 +720,8 @@ const FlightSearchComponent = () => {
 
               {/* Search Button */}
               <div className="p-3">
-                <button className="w-10 h-10 bg-white hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
-                  <Search className="w-5 h-5 text-orange-500" />
+                <button className="w-9 h-9 sm:w-10 sm:h-10 bg-white hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
+                  <Search className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" />
                 </button>
               </div>
             </div>
@@ -719,7 +732,7 @@ const FlightSearchComponent = () => {
       {/* Backdrop to close dropdowns when clicking outside */}
       {(showFromDropdown || showToDropdown || showSeatsDropdown || showTravelTypeDropdown || showTravelDateCalendar || showReturnDateCalendar) && (
         <div 
-          className="fixed inset-0 z-[999998]"
+          className="fixed inset-0 z-[999998] bg-black/20 sm:bg-transparent"
           onClick={closeAllDropdowns}
         />
       )}

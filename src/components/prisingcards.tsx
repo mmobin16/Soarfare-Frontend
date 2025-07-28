@@ -46,7 +46,7 @@ const PricingCards = () => {
         "Everything in the Standard Plan",
         "Maximize your monthly flight savings",
         "Reach your travel goals even quicker",
-        " Ideal for international trips or multiple flights per year"
+        <>Ideal for international trips or multiple<br/> flights per year</>
       ]
     }
   ];

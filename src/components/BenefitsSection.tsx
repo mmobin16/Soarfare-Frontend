@@ -4,56 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import Container from "@/assets/Container.png";
 
 const BenefitsSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
-      { threshold: 0.3 }
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      if (isInView) {
-        videoRef.current.play().catch(() => {});
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  }, [isInView]);
+  
 
   return (
     <div className="w-full">
-      {/* Video Section */}
-      <section className="bg-transparent relative overflow-hidden py-8 sm:py-16 lg:py-20">
-  <div className="w-screen">
-    <div className="relative overflow-hidden rounded-none shadow-lg w-full h-[200px] sm:h-[280px] lg:h-[600px]">
-      <video
-        ref={videoRef}
-        src="/benefits animation.mp4"
-        className="w-full h-full object-cover"
-        muted
-        playsInline
-        autoPlay
-        loop
-        preload="auto"
-      />
-      <div className="absolute inset-0 bg-black/20" />
-    </div>
-  </div>
-</section>
+     
 
 
       {/* Why Choose SoarFare */}

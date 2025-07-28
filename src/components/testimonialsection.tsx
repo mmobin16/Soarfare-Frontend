@@ -1,7 +1,17 @@
 export default function TestimonialCard() {
   return (
-    <section className="bg-[#081C3A] w-full py-6 px-6 flex justify-center items-center font-poppins">
-      <div className="bg-[#081C3A] max-w-6xl w-full flex flex-col md:flex-row rounded-3xl overflow-hidden text-white">
+    <section
+  className="w-full py-6 px-6 flex justify-center items-center font-poppins"
+  style={{
+    background: 'linear-gradient(180deg, #0C2442 0%, #142C4B 100%)',
+  }}
+>
+
+      <div 
+      className="bg-[#081C3A] max-w-6xl w-full flex flex-col md:flex-row rounded-3xl overflow-hidden text-white"
+      style={{
+    background: 'linear-gradient(180deg, #0C2442 0%, #142C4B 100%)',
+  }}>
         
         {/* Left Image Section */}
         <div className="w-full md:w-1/2 h-[400px] relative">
