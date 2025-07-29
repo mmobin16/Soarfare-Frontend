@@ -28,22 +28,22 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between px-4 sm:px-6 py-4 bg-transparent relative z-10 h-20 sm:h-24">
+      <nav className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 lg:py-6 bg-transparent relative z-10 h-20 sm:h-22 lg:h-30">
         <div className="flex items-center gap-2">
           <img
             src="/4e8c6399e9117e16c30d8a0a2b25aa785d965b63.png"
             alt="SoarFare Logo"
-            className="h-16 sm:h-20 w-auto object-contain"
+            className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
           />
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-10">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className={`text-sm font-poppins font-medium transition-colors ${
+              className={`text-base font-poppins font-medium transition-colors ${
                 pathname === item.href
                   ? "text-orange-500"
                   : "text-white hover:text-primary-foreground"
@@ -55,11 +55,11 @@ const Navigation = () => {
         </div>
 
         {/* Desktop Buttons */}
-        <div className="hidden lg:flex items-center gap-3">
-          <Button variant="outline" asChild className="bg-transparent border-transparent text-white hover:bg-white font-poppins hover:text-primary">
+        <div className="hidden lg:flex items-center gap-4">
+          <Button variant="outline" asChild className="bg-transparent border-transparent text-white hover:bg-white font-poppins hover:text-primary px-6 py-2">
             <a href="/register">Register</a>
           </Button>
-          <Button asChild className="bg-orange-500 font-poppins hover:bg-orange-500">
+          <Button asChild className="bg-orange-500 font-poppins hover:bg-orange-500 px-6 py-2">
             <a href="/login">Login</a>
           </Button>
         </div>

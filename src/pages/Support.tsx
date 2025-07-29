@@ -16,7 +16,7 @@ const Support = () => {
       </div>
       
       {/* Hero Section */}
-      <div className="relative w-[70%] sm:w-[70%] md:w-[70%] lg:w-2/3 xl:w-2/3 2xl:w-2/3 overflow-hidden my-4 sm:my-6 md:my-8 mx-auto rounded-xl sm:rounded-2xl md:rounded-3xl">
+      <div className="relative w-[70%] sm:w-[70%] md:w-[70%] lg:w-3/4 xl:w-3/4 2xl:w-3/4 overflow-hidden my-4 sm:my-6 md:my-8 mx-auto rounded-xl sm:rounded-2xl md:rounded-3xl">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0">
           <img

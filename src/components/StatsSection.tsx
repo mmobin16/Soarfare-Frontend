@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/assets/Container.png";
+import { Link } from "react-router-dom";
 
 const StatsSection = () => {
   return (
@@ -85,9 +86,11 @@ const StatsSection = () => {
 
             {/* Button */}
             <div className="flex justify-center lg:justify-start pt-2">
+              <Link to="/subscription">
               <Button className="bg-orange-500 hover:bg-orange-600 text-white font-poppins font-medium rounded-lg px-5 sm:px-6 py-2 sm:py-2.5 text-sm transition-all duration-200 shadow-md hover:shadow-lg">
                 Subscribe Now
               </Button>
+              </Link>
             </div>
           </div>
         </div>

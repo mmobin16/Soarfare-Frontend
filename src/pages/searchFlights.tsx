@@ -7,10 +7,10 @@ import Navigation from '@/components/Navigation';
 
 const SearchFlights = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [minPrice, setMinPrice] = useState(10);
-  const [maxPrice, setMaxPrice] = useState(1000);
-  const [leftThumb, setLeftThumb] = useState(20);
-  const [rightThumb, setRightThumb] = useState(70);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(100000);
+  const [leftThumb, setLeftThumb] = useState(0);
+  const [rightThumb, setRightThumb] = useState(100);
   const [isDraggingLeft, setIsDraggingLeft] = useState(false);
   const [isDraggingRight, setIsDraggingRight] = useState(false);
 
@@ -75,12 +75,12 @@ const SearchFlights = () => {
 
     if (isDraggingLeft && clampedPosition < rightThumb) {
       setLeftThumb(clampedPosition);
-      setMinPrice(Math.round(10 + (clampedPosition / 100) * 990));
+      setMinPrice(Math.round(0 + (clampedPosition / 100) * 100000));
     }
 
     if (isDraggingRight && clampedPosition > leftThumb) {
       setRightThumb(clampedPosition);
-      setMaxPrice(Math.round(10 + (clampedPosition / 100) * 990));
+      setMaxPrice(Math.round(0 + (clampedPosition / 100) * 100000));
     }
   };
 
@@ -199,48 +199,66 @@ const SearchFlights = () => {
     <div className="w-80 space-y-6">
       {/* Filter by price */}
       <div className="bg-white rounded-lg p-4 border shadow-xl">
-        <h3 className="font-semibold mb-4">Filter by price</h3>
-        
-        <div 
-          className="mb-6 px-2"
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-        >
-          {/* Slider container */}
-          <div className="relative h-2 bg-gray-200 rounded-full mb-6">
-            {/* Track */}
-            <div 
-              className="absolute h-2 bg-orange-500 rounded-full" 
-              style={{ left: `${leftThumb}%`, right: `${100 - rightThumb}%` }}
-            ></div>
-            
-            {/* Thumbs */}
-           <div 
-  className="absolute h-4 w-4 bg-white rounded-full -top-1 -ml-2 cursor-pointer"
-  style={{ 
-    left: `${leftThumb}%`, 
-    boxShadow: '0.58px 0.58px 2.32px 1.16px #00000052' 
-  }}
-  onMouseDown={handleMouseDownLeft}
-/>
+  <h3 className="font-semibold mb-4">Filter by price</h3>
 
-<div 
-  className="absolute h-4 w-4 bg-white rounded-full -top-1 -ml-2 cursor-pointer"
-  style={{ 
-    left: `${rightThumb}%`, 
-    boxShadow: '0.58px 0.58px 2.32px 1.16px #00000052' 
-  }}
-  onMouseDown={handleMouseDownRight}
-/>
+  <div 
+    className="mb-6 px-2"
+    onMouseMove={handleMouseMove}
+    onMouseUp={handleMouseUp}
+    onMouseLeave={handleMouseUp}
+  >
+    {/* Slider container */}
+    <div className="relative top-4 h-2 bg-gray-200 rounded-full mb-6">
 
-          </div>
-        </div>
+      {/* Track */}
+      <div 
+        className="absolute h-2 bg-orange-500 rounded-full" 
+        style={{ left: `${leftThumb}%`, right: `${100 - rightThumb}%` }}
+      ></div>
 
-        <button className="w-1/6 text-orange-500 border border-transparent hover:border-orange-500 rounded px-3 py-1">
-          Apply
-        </button>
+      {/* Left price label */}
+      <div 
+        className="absolute -top-6 text-xs font-medium text-gray-700" 
+        style={{ left: `calc(${leftThumb}% - 12px)` }}
+      >
+        ${minPrice}
       </div>
+
+      {/* Right price label */}
+      <div 
+        className="absolute -top-6 text-xs font-medium text-gray-700" 
+        style={{ left: `calc(${rightThumb}% - 12px)` }}
+      >
+        ${maxPrice}
+      </div>
+
+      {/* Left Thumb */}
+      <div 
+        className="absolute h-4 w-4 bg-white rounded-full -top-1 -ml-2 cursor-pointer"
+        style={{ 
+          left: `${leftThumb}%`, 
+          boxShadow: '0.58px 0.58px 2.32px 1.16px #00000052' 
+        }}
+        onMouseDown={handleMouseDownLeft}
+      />
+
+      {/* Right Thumb */}
+      <div 
+        className="absolute h-4 w-4 bg-white rounded-full -top-1 -ml-2 cursor-pointer"
+        style={{ 
+          left: `${rightThumb}%`, 
+          boxShadow: '0.58px 0.58px 2.32px 1.16px #00000052' 
+        }}
+        onMouseDown={handleMouseDownRight}
+      />
+    </div>
+  </div>
+
+  <button className="w-1/6 text-orange-500 border border-transparent hover:border-orange-500 rounded px-3 py-1">
+    Apply
+  </button>
+</div>
+
 
       {/* Stops, Class, Airlines, Refundable */}
       {[
@@ -268,7 +286,7 @@ const SearchFlights = () => {
   );
 
 const FlightCard = () => (
-  <div className="bg-white rounded-lg border border-gray-200 max-w-4xl mx-auto shadow-sm overflow-hidden">
+  <div className="bg-white rounded-lg border border-[#DDDDDD] max-w-4xl mx-auto shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md hover:border-gray-400 hover:scale-[1.01] transform hover:bg-gray-50">
     <div className="flex flex-col md:flex-row items-center justify-between">
       {/* Left section - Qatar Airways logo and show more */}
       <div className="flex flex-col items-start w-24 md:w-32 p-4 md:p-6">
@@ -292,22 +310,22 @@ const FlightCard = () => (
 
         {/* Flight path with arrow */}
 <div className="flex flex-col items-center mx-4 md:mx-8 mb-4 md:mb-0">
-  <div
-    className="w-12 md:w-14 h-12 md:h-14 rounded-full bg-orange-500 flex items-center justify-center mb-2"
-    style={{
-      boxShadow: '1.26px 5.03px 15.1px 0px #0000001A',
-    }}
-  >
+ <div
+  className="w-12 md:w-14 h-12 md:h-14 rounded-full bg-orange-500 flex items-center justify-center mb-2 border mx-auto shadow-2xl"
+  style={{ boxShadow: '0 8px 20px rgba(0, 0, 0, 0.4)' }}
+>
+
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 md:w-7 h-6 md:h-7 text-white"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth="2.5"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-    </svg>
+  xmlns="http://www.w3.org/2000/svg"
+  className="w-6 md:w-7 h-6 md:h-7 text-white drop-shadow-md"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke="currentColor"
+  strokeWidth="2.5"
+>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+</svg>
+
   </div>
   <div className="text-sm font-medium text-gray-900 mb-1">Non-stop</div>
   <div className="text-xs text-gray-500">01h 05minute</div>
@@ -325,7 +343,7 @@ const FlightCard = () => (
       {/* Right section - Price and booking */}
       <div className="bg-orange-100 text-center w-full md:w-48 flex flex-col justify-center py-6 md:py-8 px-6 md:-mr-px md:-my-px md:rounded-r-lg">
         <div className="font-semi text-xl md:text-2xl mb-4 text-gray-900">300 Points</div>
-        <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-4 py-2 rounded-lg transition-colors">
+        <button className="bg-orange-500 hover:bg-white hover:text-orange-500 border hover:border-orange-500 text-white font-medium px-4 py-2 rounded-lg transition-colors">
           Book Now
         </button>
       </div>
@@ -347,7 +365,7 @@ const FlightCard = () => (
           <div className="grid grid-cols-1 lg:grid-cols-7 gap-4 items-end">
 
   {/* From */}
-  <div className="flex-1 min-w-[160px] relative">
+  <div className="flex-1 min-w-[160px] relative transition-all duration-300 transform hover:scale-[1.04] hover:shadow-md">
     <label className="text-sm font-medium text-gray-700 mb-2 block">From</label>
     <button 
       onClick={() => {
@@ -358,7 +376,7 @@ const FlightCard = () => (
     >
       <div className="font-semibold font-barlow text-[#0C2545]">{fromLocation}</div>
       <div className="text-sm font-barlow text-[#212529]">
-        {fromLocation.includes('New York') ? 'John F. Kennedy International..' : 'Paris Orly Airport'}
+        {fromLocation.includes('New York') ? 'John F. Kennedy Inter..' : 'Paris Orly Airport'}
       </div>
     </button>
 
@@ -394,7 +412,7 @@ const FlightCard = () => (
   </div>
 
   {/* To */}
-  <div className="flex-1 min-w-[160px] relative">
+  <div className="flex-1 min-w-[160px] relative transition-all duration-300 transform hover:scale-[1.04] hover:shadow-md">
     <label className="text-sm font-medium text-gray-700 mb-2 block">To</label>
     <button 
       onClick={() => {
@@ -405,7 +423,7 @@ const FlightCard = () => (
     >
       <div className="font-semibold font-barlow text-[#0C2545]">{toLocation}</div>
       <div className="text-sm font-barlow text-[#212529]">
-        {toLocation.includes('France') ? 'Paris Orly Airport' : 'John F. Kennedy International..'}
+        {toLocation.includes('France') ? 'Paris Orly Airport' : 'John F. Kennedy Inter..'}
       </div>
     </button>
 
@@ -443,7 +461,7 @@ const FlightCard = () => (
 
 
             {/* Travel Date */}
-            <div className="min-w-[160px] relative">
+            <div className="min-w-[160px] relative transition-all duration-300 transform hover:scale-[1.04] hover:shadow-md">
               <label className="text-sm font-medium text-gray-700 mb-2 block">Travel Date</label>
               <button 
                 onClick={() => {
@@ -465,7 +483,7 @@ const FlightCard = () => (
             </div>
 
             {/* Return Date */}
-            <div className="min-w-[160px] relative">
+            <div className="min-w-[160px] relative transition-all duration-300 transform hover:scale-[1.04] hover:shadow-md">
               <label className="text-sm font-medium text-gray-700 mb-2 block">Return Date</label>
               <button 
                 onClick={() => {
@@ -487,7 +505,7 @@ const FlightCard = () => (
             </div>
 
             {/* Seats & Classes */}
-            <div className="min-w-[160px] relative">
+            <div className="min-w-[160px] relative transition-all duration-300 transform hover:scale-[1.04] hover:shadow-md">
               <label className="text-sm font-medium text-gray-700 mb-2 block">Seats & Classes</label>
               <button 
                 onClick={() => {
@@ -587,7 +605,7 @@ const FlightCard = () => (
             </div>
 
             {/* Travel Type */}
-            <div className="min-w-[160px] relative">
+            <div className="min-w-[160px] relative transition-all duration-300 transform hover:scale-[1.04] hover:shadow-md">
               <label className="text-sm font-medium text-gray-700 mb-2 block">Travel Type</label>
               <button 
                 onClick={() => {
@@ -624,7 +642,7 @@ const FlightCard = () => (
 
             {/* Search Button */}
             <div className="flex items-end">
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white w-full h-[40px]">
+              <Button className="bg-orange-500 hover:bg-white hover:text-orange-500 border hover:border-orange-500 text-white w-full h-[40px]">
                 <Search className="w-4 h-4 mr-2" /> Search Flights
               </Button>
             </div>

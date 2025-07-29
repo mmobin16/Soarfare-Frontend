@@ -37,7 +37,8 @@ const PricingCards = () => {
     },
     {
       name: "Premium",
-      description: "For frequent flyers and big dreamers.",
+      description: <>For frequent flyers and big dreamers.<br/><br/></>,
+
       price: "$100",
       period: "/month",
       buttonText: "Join Now",

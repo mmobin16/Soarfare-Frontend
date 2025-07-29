@@ -4,6 +4,7 @@ import { Plane, Luggage, Building, MapPin, Palmtree, Play, Check } from "lucide-
 import TestimonialCard from "@/components/testimonialsection";
 import Footer from "@/components/footer";
 import '../components/ScrollingSvg.css'
+import { Link } from "react-router-dom";
 const AboutUs = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -107,9 +108,11 @@ const AboutUs = () => {
             </div>
 
             {/* CTA Button */}
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 font-poppins text-lg rounded-lg">
+            <Link to="/subscription">
+            <Button className="bg-orange-500 hover:bg-white border hover:border-orange-500 hover:text-orange-500 text-white px-8 py-3 font-poppins text-lg rounded-lg">
               Subscribe Now
             </Button>
+            </Link>
           </div>
 
           {/* Right Image */}
@@ -405,9 +408,11 @@ const AboutUs = () => {
             </h3>
 
             {/* Search Flights Button */}
+            <Link to="/searchflights">
       <button className="bg-white text-black font-poppins  text-sm px-6 py-3 rounded-md hover:bg-gray-200 transition">
         Search Flights
       </button>
+      </Link>
 
             
           </div>

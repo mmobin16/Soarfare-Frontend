@@ -39,13 +39,14 @@ const MiddleComponent = () => {
         </div>
 
         {/* Right Image */}
-        <div className="w-[360px] h-[450px] rounded-2xl overflow-hidden">
-          <img
-            src="/Screenshot 2025-07-27 011047.png"
-            alt="Flight booking visual"
-            className="w-full h-full object-cover rounded-2xl"
-          />
-        </div>
+        <div className="w-[360px] h-[450px] rounded-2xl overflow-hidden mt-10">
+  <img
+    src="/Screenshot 2025-07-27 011047.png"
+    alt="Flight booking visual"
+    className="w-full h-full object-cover rounded-2xl"
+  />
+</div>
+
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ const FlightSearchComponent = () => {
   const [travelDate, setTravelDate] = useState('mm/dd/yyyy');
   const [returnDate, setReturnDate] = useState('mm/dd/yyyy');
   const [seatsClass, setSeatsClass] = useState('Economy');
-  const [travelType, setTravelType] = useState('One Way');
+  const [travelType, setTravelType] = useState('Round Trip');
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
@@ -31,7 +31,7 @@ const FlightSearchComponent = () => {
   const seatClasses = ['Economy', 'Premium Economy', 'Business', 'First Class'];
   const travelTypes = [
     { id: 'roundtrip', label: 'Round Trip' },
-    { id: 'oneway', label: 'One way' },
+    { id: 'oneway', label: 'One Way' },
     { id: 'multicity', label: 'Multi-city' }
   ];
 
@@ -206,7 +206,7 @@ const FlightSearchComponent = () => {
             </div>
 
             {/* Swap Button */}
-            <div className="px-2">
+            <div className="px-7">
               <button
                 onClick={swapLocations}
                 className="w-10 h-10 bg-white hover:bg-gray-100 rounded-full flex items-center justify-center transition-colors"
@@ -283,7 +283,7 @@ const FlightSearchComponent = () => {
             </div>
 
             {/* Return Date */}
-            <div className="relative p-4 border-r border-gray-600 min-w-32">
+            {travelType !== "One Way" && (<div className="relative p-4 border-r border-gray-600 min-w-32">
               <div className="text-sm text-gray-300 mb-1">Return Date</div>
               <button 
                 onClick={() => {
@@ -302,7 +302,7 @@ const FlightSearchComponent = () => {
                   {renderCalendar(true)}
                 </div>
               )}
-            </div>
+            </div>)}
 
             {/* Seats & Classes */}
             <div className="relative p-4 border-r border-gray-600 min-w-32">
@@ -574,28 +574,31 @@ const FlightSearchComponent = () => {
                   </div>
                 )}
               </div>
-              <div className="flex-1 p-3 relative">
-                <div className="text-xs text-gray-300 mb-1">Return Date</div>
-                <button 
-                  onClick={() => {
-                    closeAllDropdowns();
-                    setShowReturnDateCalendar(true);
-                  }}
-                  className="text-white text-left w-full hover:text-gray-300 transition-colors flex items-center text-sm"
-                >
-                  <span className="truncate">{returnDate}</span>
-                  <Calendar className="w-3 h-3 ml-1 flex-shrink-0" />
-                </button>
+              {travelType !== "One Way" && (
+  <div className="flex-1 p-3 relative">
+    <div className="text-xs text-gray-300 mb-1">Return Date</div>
+    <button 
+      onClick={() => {
+        closeAllDropdowns();
+        setShowReturnDateCalendar(true);
+      }}
+      className="text-white text-left w-full hover:text-gray-300 transition-colors flex items-center text-sm"
+    >
+      <span className="truncate">{returnDate}</span>
+      <Calendar className="w-3 h-3 ml-1 flex-shrink-0" />
+    </button>
 
-                {/* Return Date Calendar - Mobile */}
-                {showReturnDateCalendar && (
-                  <div className="absolute top-full left-0 right-0 z-[999999] mt-2 px-1">
-                    <div className="flex justify-center">
-                      {renderCalendar(true)}
-                    </div>
-                  </div>
-                )}
-              </div>
+    {/* Return Date Calendar - Mobile */}
+    {showReturnDateCalendar && (
+      <div className="absolute top-full left-0 right-0 z-[999999] mt-2 px-1">
+        <div className="flex justify-center">
+          {renderCalendar(true)}
+        </div>
+      </div>
+    )}
+  </div>
+)}
+
             </div>
 
             {/* Row 3: Seats & Classes, Travel Type, Search */}
